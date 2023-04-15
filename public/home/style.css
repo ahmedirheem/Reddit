@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dae0e6;
+}
+
+:root {
+  --main-font: 'IBM Plex Sans', Arial, sans-serif;
+  --secondary-font: 'Noto Sans', Arial, sans-serif;
+  ;
+  --orange-color: #FF4500;
+  --white-color: #fff;
+  --text-gray-color: #1c1c1c;
+  --dark-bg-color: #1a1a1b;
+  --black-color: #000;
+  --gray-color: #a5a5a5;
+  --light-gray-color: #d7dadc;
+  --blue-color: #0079d3;
+  --icon-gray-color: #878a8c;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Start Header Section */
+
+header {
+  width: 100vw;
+  background-color: var(--white-color);
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 1px solid #edeff1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+header .left .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header .left .logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+header .left .logo-text {
+  width: 57px;
+}
+
+header .middle {
+  background-color: #f6f7f8;
+  border-radius: 1.25rem;
+  width: 45%;
+  max-width: 690px;
+  height: 40px;
+  border: 1px solid #f6f7f8;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 15px;
+}
+
+header .middle:hover {
+  border-color: var(--blue-color);
+  cursor: context-menu;
+}
+
+header .middle i {
+  margin-right: 9px;
+  font-size: 20px;
+  color: var(--icon-gray-color);
+}
+
+header .middle input {
+  margin-right: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--text-gray-color);
+}
+
+header .right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+header .right button:not(:last-child) {
+  width: 120px;
+  min-width: 32px;
+  height: 32px;
+  min-height: 32px;
+  border-radius: 9999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--secondary-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  padding: 4px 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .right button:not(:last-child) span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .right .get-app-btn {
+  gap: 0.5rem;
+  background-color: #f6f7f8;
+}
+
+header .right .get-app-btn:hover {
+  background-color: #e4e6e7;
+}
+
+header .right .log-in-btn {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+}
+
+header .right .log-in-btn:hover {
+  background-color: #ff5414;
+}
+
+header .right .setting-btn {
+  height: 32px;
+  width: 70px !important;
+  min-height: 32px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid transparent !important;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 4px !important;
+}
+
+header .right .setting-btn:hover,
+header .right .setting-btn:focus {
+  border-color: #edeff1 !important;
+}
+
+header .right .setting-btn i {
+  font-size: 18px;
+  color: var(--icon-gray-color);
+}
+
+header .right .setting-menu {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  width: 210px;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 6px 2px 2px 2px;
+  border-radius: 0 0 4px 4px;
+  color: var(--text-gray-color);
+  background-color: var(--white-color);
+  display: none;
+  font-family: var(--main-font);
+}
+
+header .right .setting-menu.active {
+  display: block;
+}
+
+header .right .setting-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 20px 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+header .right .setting-menu>li:last-child {
+  border-top: 1px solid #edeff1;
+}
+
+header .right .setting-menu>li:hover {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+header .right .setting-menu>li:hover i {
+  color: var(--white-color);
+}
+
+header .right .setting-menu>li span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+header .right .setting-menu>li i {
+  font-size: 18px;
+  color: var(--icon-gray-color);
+}
+
+header .right .setting-menu>li i:first-child {
+  margin-right: 0.8rem;
+}
+
+header .right .setting-menu>li i:not(:first-child) {
+  margin-left: auto;
+  transition: transform .3s ease-out;
+}
+
+header .right .setting-menu>li i.rotated:not(:first-child) {
+  transform: rotate(180deg);
+}
+
+header .right .sub-setting-menu {
+  left: 0;
+  top: 40px;
+  background-color: var(--white-color);
+  width: 100%;
+  display: none;
+  background-color: red;
+}
+
+header .right .sub-setting-menu.active {
+  display: block;
+}
+
+
+header .right .sub-setting-menu a li {
+  background-color: red;
+  height: 40px;
+  color: var(--text-gray-color);
+  background-color: var(--white-color);
+  text-align: left;
+  padding: 10px 1rem 10px 3.6rem !important;
+}
+
+header .right .sub-setting-menu a li:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+header .right .sub-setting-menu:last-of-type a li:hover {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+/* End Header Section */
