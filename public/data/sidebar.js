@@ -10,7 +10,7 @@ const leftSidebarMenuData = [
     menu: ['NFL', 'NBL', 'Megan Anderson', 'Atlanta Hawks', 'Los Angeles Lakers', 'Boston Celtics', 'Arsenal F.C.', 'Philadelphia 76ers', 'Premier League', 'UFC'],
   },
   {
-    icon: 'fa-solid fa-business-time',
+    icon: 'fa-solid fa-chart-column',
     title: 'Business, Economics, and Finance',
     menu: ['GameStop', 'Moderna', 'Pfizer', 'Johnson & Johnson', 'AstraZeneca', 'Walgreens', 'Best Buy', 'Novavax', 'SpaceX', 'Tesla'],
   },

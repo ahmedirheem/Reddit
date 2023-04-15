@@ -11,6 +11,10 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.1.1/remixicon.css"
+    integrity="sha512-bw8ip4ZA3UJjal7ekna1b90BlxU8+1roZZTI05t31ge92y+NlMWcj8LSJHUxG89UQXLnUwT0k6O/zMjE+LF4sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="icon" type="image/png" sizes="192x192"
     href="https://www.redditstatic.com/desktop2x/img/favicon/android-icon-192x192.png">
 
@@ -73,6 +77,40 @@
     </div>
   </header>
   <!-- End Header Section -->
+
+  <!-- Start Sidebar Section -->
+  <nav>
+    <div>
+      <span class="title">Feeds</span>
+    <ul class="main-menu">
+      <a href="/">
+        <li>
+          <i class="ri-home-3-line"></i>
+          <span>Home</span>
+        </li>
+      </a>
+      <a href="/popular">
+        <li>
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          <span>Popular</span>
+        </li>
+      </a>
+    </ul>
+    <span class="title">Topics</span>
+    <ul class="sidebar-menu"></ul>
+    </div>
+
+    <div class="bottom-section">
+      <p class="sidebar-text">
+        Create an account to follow your favorite communities and start taking part in conversations.
+      </p>
+
+      <button class="join-btn">
+        <span>Join Reddit</span>
+      </button>
+    </div>
+  </nav>
+  <!-- End Sidebar Section -->
 
   <script src="./data/sidebar.js"></script>
   <script src="./home/dom.js"></script>
