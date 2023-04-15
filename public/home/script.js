@@ -1,6 +1,7 @@
 const settingBtn = document.querySelector('.setting-btn');
 const settingMenu = document.querySelector('.setting-menu');
 const sidebarMenu = document.querySelector('.sidebar-menu');
+const rightSideMenu = document.querySelector('.right-side-menus');
 
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
@@ -24,9 +25,19 @@ const appendChildren = (parent, ...children) => {
   })
 }
 
-const appearSettingMenu = (ele) => {
+const appearSettingMenu = (ele, i) => {
   ele.nextSibling.classList.toggle('active')
-  ele.children[2].classList.toggle('rotated');
+  ele.children[i].classList.toggle('rotated');
+}
+
+const appearRightMenus = (ele, index) => {
+  for (let i = 0; i < ele.parentElement.children.length; i++) {
+    if(ele.parentElement.children[i] !== ele.nextSibling){
+      ele.parentElement.children[i].classList.remove('active')
+    }
+  }
+  ele.nextSibling.classList.toggle('active')
+  ele.children[index].classList.toggle('rotated');
 }
 
 settingBtn.addEventListener('click', () => {
@@ -36,7 +47,7 @@ settingBtn.addEventListener('click', () => {
 
 settingMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
-  menuItem.setAttribute('onclick', 'appearSettingMenu(this)');
+  menuItem.setAttribute('onclick', 'appearSettingMenu(this, 2)');
   const itemTitle = createHtmlElement('span', 'item-title', null, item.title)
   const itemIcon = createHtmlElement('i', item.icon)
   const itemMoreIcon = createHtmlElement('i', item.moreIcon)
@@ -63,7 +74,7 @@ settingMenuData.forEach((item) => {
 
 leftSidebarMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
-  menuItem.setAttribute('onclick', 'appearSettingMenu(this)');
+  menuItem.setAttribute('onclick', 'appearSettingMenu(this, 2)');
   const itemTitle = createHtmlElement('span', 'item-title', null, item.title)
   const itemIcon = createHtmlElement('i', item.icon)
   const itemMoreIcon = createHtmlElement('i', 'fa-solid fa-angle-down')
@@ -82,4 +93,23 @@ leftSidebarMenuData.forEach((item) => {
   appendChildren(sidebarMenu, menuItem, subMenu);
 })
 
+rightSideMenuData.forEach((item) => {
+  const menuItem = createHtmlElement('li', 'setting-item');
+  menuItem.setAttribute('onclick', 'appearRightMenus(this, 1)');
+  const itemTitle = createHtmlElement('span', 'item-title', null, item.title)
+  const itemMoreIcon = createHtmlElement('i', 'fa-solid fa-angle-down')
+
+  const subMenu = createHtmlElement('ul', 'sub-setting-menu');
+
+  item.menu.forEach((subItem) => {
+    const subMenuItemLink = createHtmlElement('a', 'submenu-item-link', null, subItem);
+    subMenuItemLink.setAttribute('href', '#');
+    subMenu.appendChild(subMenuItemLink);
+  })
+  const seeMoreBtn = createHtmlElement('button', 'see-more-btn', null, 'See more')
+  subMenu.appendChild(seeMoreBtn)
+
+  appendChildren(menuItem, itemTitle, itemMoreIcon);
+  appendChildren(rightSideMenu, menuItem, subMenu);
+})
 
