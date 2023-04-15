@@ -2,6 +2,7 @@ const settingBtn = document.querySelector('.setting-btn');
 const settingMenu = document.querySelector('.setting-menu');
 const sidebarMenu = document.querySelector('.sidebar-menu');
 const rightSideMenu = document.querySelector('.right-side-menus');
+const risingMenu = document.querySelector('.rising-menu');
 
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
@@ -44,6 +45,16 @@ settingBtn.addEventListener('click', () => {
   settingMenu.classList.toggle('active')
 })
 
+risingMenu.addEventListener('click', () => {
+  risingMenu.classList.toggle('dropped')
+})
+
+// document.addEventListener('click', (e) => {
+//   if(e.target.className !== settingMenu.className || e.target.className !== settingBtn.className || e.target.className !== settingBtn.querySelector('i').className){
+//     console.log('WORK');
+//     settingMenu.classList.remove('active')
+//   }
+// })
 
 settingMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
@@ -112,4 +123,5 @@ rightSideMenuData.forEach((item) => {
   appendChildren(menuItem, itemTitle, itemMoreIcon);
   appendChildren(rightSideMenu, menuItem, subMenu);
 })
+
 

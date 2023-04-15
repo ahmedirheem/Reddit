@@ -66,7 +66,7 @@ const settingMenuData = [
 const rightSideMenuData = [
   {
     title: 'POPULAR COMMUNITIES',
-    menu: ['AskReddit', 'NoStupidQuestions','DestinyTheGame', 'explainlikeimfive', 'AskMen', 'leagueoflegends', 'Minecraft']
+    menu: ['AskReddit', 'NoStupidQuestions', 'DestinyTheGame', 'explainlikeimfive', 'AskMen', 'leagueoflegends', 'Minecraft']
   },
   {
     title: 'GAMING',
@@ -82,7 +82,7 @@ const rightSideMenuData = [
   },
   {
     title: 'TRAVEL',
-    menu: ['vancouver', 'brasil', 'australia', 'mexico' , 'argentina', 'melbourne', 'ottawa', 'korea', 'ireland', 'travel', 'Calgary', 'portugal']
+    menu: ['vancouver', 'brasil', 'australia', 'mexico', 'argentina', 'melbourne', 'ottawa', 'korea', 'ireland', 'travel', 'Calgary', 'portugal']
   },
   {
     title: 'HEALTH & FITNESS',
@@ -91,5 +91,67 @@ const rightSideMenuData = [
   {
     title: 'FASHION',
     menu: ['MakeupAddiction', 'Watches', 'BeautyGuruChatter', 'femalefashionadvice', 'frugalmalefashion', 'curlyhair', 'poshmark']
+  },
+]
+
+const countries = [
+  { name: "Afghanistan", code: "AF", id: 0 },
+  { name: "Aland Islands", code: "AX", id: 1 },
+  { name: "Albania", code: "AL", id: 2 },
+  { name: "Algeria", code: "DZ", id: 3 },
+  { name: "American Samoa", code: "AS", id: 4 },
+  { name: "Andorra", code: "AD", id: 5 },
+  { name: "Angola", code: "AO", id: 6 },
+  { name: "Anguilla", code: "AI", id: 7 },
+  { name: "Antarctica", code: "AQ", id: 8 },
+  { name: "Antigua and Barbuda", code: "AG", id: 9 },
+  { name: "Argentina", code: "AR", id: 10 },
+  { name: "Armenia", code: "AM", id: 11 },
+  { name: "Aruba", code: "AW", id: 12 },
+  { name: "Australia", code: "AU", id: 13 },
+  { name: "Austria", code: "AT", id: 14 },
+  { name: "Azerbaijan", code: "AZ", id: 15 },
+  { name: "Bahamas", code: "BS", id: 16 },
+  { name: "Bahrain", code: "BH", id: 17 },
+  { name: "Bangladesh", code: "BD", id: 18 },
+  { name: "Barbados", code: "BB", id: 19 },
+  { name: "Belarus", code: "BY", id: 20 },
+]
+
+const postsMenu = [
+  {
+    likes: 5,
+    disLikes: 2,
+    category: 'Politics',
+    time: '225553',
+    userName: 'ahmedirheem',
+    userAvatar: '../assets/people-1284253_960_720.jpg',
+
+    content: {
+      caption: 'HEEEEEEEEEEEEEEEEEEELO',
+      images: ['../assets/people-1284253_960_720.jpg', '../assets/people-1284253_960_720.jpg'],
+      video: ['../assets/yt5s.io-سورة الضحى _ عثمان مشعل الحداد(720p).mp4']
+    },
+
+    comments: [
+      {
+        name: '',
+        avatar: '',
+        comment: '',
+        time: '',
+        likes: '',
+        disLikes: '',
+        replies: [
+          {
+            name: '',
+            avatar: '',
+            comment: '',
+            time: '',
+            likes: '',
+            disLikes: '',
+          },
+        ]
+      },
+    ]
   },
 ]

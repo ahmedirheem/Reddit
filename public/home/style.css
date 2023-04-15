@@ -252,8 +252,6 @@ nav div>ul>li i.rotated:not(:first-child),
 }
 
 .sub-setting-menu {
-  left: 0;
-  top: 40px;
   background-color: var(--white-color);
   width: 100%;
   display: none !important;
@@ -511,6 +509,101 @@ section.body {
 /* End Trending Section */
 
 /* Start Posts Section */
+
+.posts{
+  flex: 1;
+}
+
+.posts .posts-head{
+  border-radius: 4px;
+  background-color: var(--white-color);
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  padding: 10px 12px;
+  flex-flow: row nowrap;
+  font-family: var(--secondary-font);
+}
+
+.posts .posts-head a,
+.posts .posts-head select{
+  color: var(--icon-gray-color);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 8px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: px;
+}
+.posts .posts-head select{
+  border: none;
+  outline: none;
+}
+.posts .posts-head a.active,
+.posts .posts-head select{
+  background-color: #f6f7f8;
+  color: var(--blue-color);
+}
+.posts .posts-head a:hover{
+  background-color: #e5e6e7;
+}
+
+.posts .posts-head a.rising-menu{
+  position: relative;
+}
+.posts .posts-head a.rising-menu li{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-radius: 4px;
+  background-color: var(--white-color);
+  color: var(--icon-gray-color);
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  display: none;
+}
+.posts .posts-head a.rising-menu li:hover{
+  background-color: #e9f5fd;
+  color: var(--text-gray-color);
+}
+.posts .posts-head a.rising-menu.dropped li{
+  display: flex;
+}
+.posts .posts-head a i{
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 0 8px 0 0;
+  line-height: 20px;
+  display: inline-block;
+}
+.posts .posts-head a span,
+.posts .posts-head select{
+  text-align: left;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 700;
+}
+.posts .posts-head .place-selection ul{
+  width: 100%;
+  border-radius: 0;
+}
+.posts .posts-head .place-selection option{
+  display: block;
+  padding: 8px;
+  background-color: red;
+}
+.posts .posts-head .posts-pattern{
+  margin-left: auto;
+}
 /* End Posts Section */
 
 
@@ -521,6 +614,7 @@ section.body {
   border-color: var(--white-color);
   border-radius: 4px;
   overflow: hidden;
+  margin-top: 28px;
 }
 .right-side-menus li{
   width: 100%;

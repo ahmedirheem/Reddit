@@ -185,8 +185,57 @@
     </div>
     <!-- End Trending Section -->
 
-    <!-- Start Right Side Bar -->
-    <div>
+    <div style="display: flex; justify-content: space-between; gap: 24px;">
+      <!-- Start Posts Section -->
+      <div class="posts">
+        <h3>Popular posts</h3>
+        <div class="posts-head">
+          <a href="#" class="active">
+            <i class="fa-solid fa-fire"></i>
+            <span>Hot</span>
+          </a>
+          <select name="place" class="place-selection" class="active">
+            <ul>
+              <option value="Everywhere">Everywhere</option>
+              <option value="United States">United States</option>
+            </ul>
+          </select>
+          <a href="#">
+            <i class="fa-regular fa-sun"></i>
+            <span>New</span>
+          </a>
+          <a href="#">
+            <i class="fa-regular fa-circle-up"></i>
+            <span>Top</span>
+          </a>
+          <a class="rising-menu">
+            <i class="fa-solid fa-ellipsis"></i>
+            <li class="droped-item">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <span>Rising</span>
+            </li>
+          </a>
+
+          <select class="posts-pattern">
+            <option>
+              <i class="ri-archive-drawer-line"></i>
+              <span>Card</span>
+            </option>
+            <option>
+              <i class="fa-solid fa-table-cells-large"></i>
+              <span>Classic</span>
+            </option>
+            <option>
+              <i class="fa-solid fa-bars"></i>
+              <span>Compact</span>
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- End Posts Section -->
+
+      <!-- Start Right Side Bar -->
+      <!-- <div>
       <div class="right-side-menus"></div>
       <div class="right-bottom-text">
         <div class="top">
@@ -205,8 +254,9 @@
           </p>
         </div>
       </div>
+    </div> -->
+      <!-- End Right Side Bar -->
     </div>
-    <!-- End Right Side Bar -->
   </section>
 
   <!----- End Body Section ----->
