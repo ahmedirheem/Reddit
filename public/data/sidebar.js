@@ -122,15 +122,16 @@ const postsMenu = [
   {
     likes: 5,
     disLikes: 2,
-    category: 'Politics',
     time: '225553',
+    groupName: 'GROOOp',
     userName: 'ahmedirheem',
-    userAvatar: '../assets/people-1284253_960_720.jpg',
-
+    userAvatar: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+    
     content: {
-      caption: 'HEEEEEEEEEEEEEEEEEEELO',
-      images: ['../assets/people-1284253_960_720.jpg', '../assets/people-1284253_960_720.jpg'],
-      video: ['../assets/yt5s.io-سورة الضحى _ عثمان مشعل الحداد(720p).mp4']
+      caption: 'HEEdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddEEEEEEEEEEEEEEEEELO',
+      category: 'Politics',
+      images: ['https://images.unsplash.com/photo-1669082072800-ee5e9a06b8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80' ,'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg', '../assets/people-1284253_960_720.jpg'],
+      video: '../assets/yt5s.io-سورة الضحى _ عثمان مشعل الحداد(720p).mp4'
     },
 
     comments: [
