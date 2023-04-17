@@ -63,6 +63,7 @@ li {
   max-width: 600px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -124,14 +125,18 @@ li {
   border-radius: 14px !important;
 }
 
-.log-in-popup .close-icon {
+.log-in-popup .close-icon,
+.log-in-popup .back-icon {
   position: absolute;
   top: 16px;
   right: 16px;
   cursor: pointer;
 }
-
-.log-in-popup .close-icon i {
+.log-in-popup .back-icon{
+  left: 60px;
+}
+.log-in-popup .close-icon i,
+.log-in-popup .back-icon i{
   font-size: 20px;
   color: var(--icon-gray-color);
 }
@@ -369,13 +374,12 @@ li {
 .log-in-popup .login-form .login-btn:hover {
   background-color: #dc4a14;
 }
-
-
-
-
-
-
-
-
-
+.form-step{
+  display: block;
+}
+.d-none {
+  display: none;
+}
 /* End Log In Popup */
+
+
