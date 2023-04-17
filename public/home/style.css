@@ -296,6 +296,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  display: none;
 }
 
 nav div {
@@ -521,7 +522,8 @@ section.body {
   flex: 1;
 }
 
-.posts .posts-head {
+.posts .posts-head,
+.posts .create-post-contain {
   border-radius: 4px;
   background-color: var(--white-color);
   border: 1px solid #ccc;
@@ -533,6 +535,95 @@ section.body {
   padding: 10px 12px;
   flex-flow: row nowrap;
   font-family: var(--secondary-font);
+}
+
+.posts .create-post-contain .avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+}
+
+.posts .create-post-contain .avatar img,
+.posts .create-post-contain .avatar .icon {
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.posts .create-post-contain .avatar .icon svg {
+  fill: var(--icon-gray-color);
+  height: 100%;
+  width: 100%;
+}
+
+.posts .create-post-contain .avatar .active {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--white-color);
+  background-color: #46d160;
+  position: absolute;
+  bottom: 0;
+  right: -4px;
+}
+
+.posts .create-post-contain .text-post {
+  flex: 1;
+  display: block;
+  background-color: #f6f7f8;
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid #edeff1;
+}
+.posts .create-post-contain .text-post:hover,
+.posts .create-post-contain .text-post:focus{
+  border: 1px solid #0079d3;
+}
+.posts .create-post-contain .text-post input{
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--secondary-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 0 1rem;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.posts .create-post-contain .image-post,
+.posts .create-post-contain .link-post{
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts .create-post-contain .image-post:hover,
+.posts .create-post-contain .link-post:hover{
+  background-color: #ededed;
+}
+
+.posts .create-post-contain .image-post i,
+.posts .create-post-contain .link-post i{
+  font-size: 20px;
+  color: var(--icon-gray-color);
+  width: 20px;
+  height: 20px;  
+  line-height: 20px;
 }
 
 .posts .posts-head a,
@@ -813,9 +904,10 @@ section.body {
   align-items: center;
 }
 
-.post .post-social div:hover{
+.post .post-social div:hover {
   background-color: #e8e8e8;
 }
+
 .post .post-social div i {
   font-size: 17px;
   vertical-align: middle;
@@ -828,15 +920,17 @@ section.body {
   font-weight: 700;
 }
 
-.posts .post-social .more-sec{
+.posts .post-social .more-sec {
   padding-top: 2px !important;
   padding-bottom: 2px !important;
   text-align: center;
   position: relative;
 }
-.posts .post-social .more-sec .more-icon{
+
+.posts .post-social .more-sec .more-icon {
   width: 100%;
 }
+
 .posts .post-social .more-sec ul {
   position: absolute;
   top: 100%;
@@ -851,6 +945,7 @@ section.body {
 .posts .post-social .more-sec.dropped ul {
   display: block;
 }
+
 .posts .post-social .more-sec li {
   color: var(--icon-gray-color);
   display: flex;
@@ -863,17 +958,20 @@ section.body {
   border-top: 1px solid #edeff1;
   width: 100%;
 }
-.posts .post-social .more-sec li i{
+
+.posts .post-social .more-sec li i {
   margin-right: 6px;
   font-size: 20px;
   position: absolute;
 }
-.posts .post-social .more-sec li span{
+
+.posts .post-social .more-sec li span {
   font-size: 14px;
   font-family: var(--main-font);
   font-weight: 500;
   margin-left: 35px;
 }
+
 .posts .post-social .more-sec li:hover {
   background-color: #e9f5fd;
   color: var(--text-gray-color);
