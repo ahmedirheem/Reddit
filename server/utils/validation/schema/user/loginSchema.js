@@ -1,14 +1,9 @@
 const Joi = require('joi');
 
-const signupSchema = Joi.object({
-  username: Joi.string().min(5).max(50).required()
-    .messages({
-      'string.empty': 'Username is a required filed',
-    }),
-  email: Joi.string().email().required()
-    .messages({
-      'string.empty': 'Email is a required filed',
-    }),
+const loginSchema = Joi.object({
+  email: Joi.string().email().required().messages({
+    'string.empty': 'Email is a required field',
+  }),
   password: Joi.string().min(5).max(25).regex('/(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[$@$!#.])[A-Za-zd$@$!%*?&.]{8,20}/')
     .required()
     .messages({
@@ -17,4 +12,4 @@ const signupSchema = Joi.object({
     }),
 });
 
-module.exports = signupSchema;
+module.exports = loginSchema;
