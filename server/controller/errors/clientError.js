@@ -1,0 +1,3 @@
+const clientError = (req, res) => {
+
+};
