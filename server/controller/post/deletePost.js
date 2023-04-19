@@ -3,7 +3,7 @@ const deletePostQuery = require('../../database/queries/post/deletePostQuery');
 const deletePost = (req, res, next) => {
   const { id } = req.body;
 
-  deletePostQuery(id)
+  deletePostQuery({ id })
     .then((data) => res.json({
       error: false,
       data: {
