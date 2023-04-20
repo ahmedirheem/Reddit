@@ -3,7 +3,6 @@ const compression = require('compression');
 const express = require('express');
 // const path = require('path');
 const router = require('./routes');
-// const { clientError, serverError } = require('./controller/errors');
 require('dotenv').config();
 
 const app = express();
@@ -20,7 +19,5 @@ app.use([
 ]);
 
 app.use('/api/v1', router);
-// app.use(clientError);
-// app.use(serverError);
 
 module.exports = app;

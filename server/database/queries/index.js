@@ -1,6 +1,13 @@
-const { getUserByEmailQuery, signupQuery } = require('./user');
+const {
+  getAllPostsQuery,
+  addPostQuery,
+  updatePostQuery,
+  deletePostQuery,
+} = require('./post');
 
 module.exports = {
-  signupQuery,
-  getUserByEmailQuery,
+  getAllPostsQuery,
+  addPostQuery,
+  updatePostQuery,
+  deletePostQuery,
 };

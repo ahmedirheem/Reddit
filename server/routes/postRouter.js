@@ -1,8 +1,11 @@
 const express = require('express');
-const addPost = require('../controller/post/addPost');
-const deletePost = require('../controller/post/deletePost');
-const getAllPosts = require('../controller/post/getAllPosts');
-const updatePost = require('../controller/post/updatePost');
+
+const {
+  getAllPosts,
+  addPost,
+  updatePost,
+  deletePost,
+} = require('../controller');
 
 const postRouter = express.Router();
 
