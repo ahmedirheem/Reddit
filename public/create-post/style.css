@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dae0e6;
+}
+
+:root {
+  --main-font: 'IBM Plex Sans', Arial, sans-serif;
+  --secondary-font: 'Noto Sans', Arial, sans-serif;
+  ;
+  --orange-color: #FF4500;
+  --white-color: #fff;
+  --text-gray-color: #1c1c1c;
+  --dark-bg-color: #1a1a1b;
+  --black-color: #000;
+  --gray-color: #a5a5a5;
+  --light-gray-color: #d7dadc;
+  --blue-color: #0079d3;
+  --icon-gray-color: #878a8c;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
