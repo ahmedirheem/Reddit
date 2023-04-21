@@ -34,7 +34,7 @@ const leftSidebarMenuData = [
     title: 'More Topics',
     menu: ['Animals and Pets', 'Anime', 'Art', 'Cars and Motor Vehicles', 'Crafts and DIY', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Fashion', 'Food and Drink', 'History', 'Hobbies', 'Law', 'Learning and Education', 'Military', 'Movies', 'Music', 'Place', 'Podcasts and Streamers', 'Politics', 'Programming', 'Reading, Writing, and Literature', 'Religion and Spirituality', 'Science', 'Tabletop Games', 'Technology', 'Travel'],
   },
-]
+];
 
 const settingMenuData = [
   {
@@ -61,7 +61,7 @@ const settingMenuData = [
     icon: 'fa-solid fa-arrow-right-to-bracket',
     title: 'Log In / Sign Up',
   },
-]
+];
 
 const rightSideMenuData = [
   {
@@ -92,31 +92,31 @@ const rightSideMenuData = [
     title: 'FASHION',
     menu: ['MakeupAddiction', 'Watches', 'BeautyGuruChatter', 'femalefashionadvice', 'frugalmalefashion', 'curlyhair', 'poshmark']
   },
-]
+];
 
 const countries = [
-  { name: "Afghanistan", code: "AF", id: 0 },
-  { name: "Aland Islands", code: "AX", id: 1 },
-  { name: "Albania", code: "AL", id: 2 },
-  { name: "Algeria", code: "DZ", id: 3 },
-  { name: "American Samoa", code: "AS", id: 4 },
-  { name: "Andorra", code: "AD", id: 5 },
-  { name: "Angola", code: "AO", id: 6 },
-  { name: "Anguilla", code: "AI", id: 7 },
-  { name: "Antarctica", code: "AQ", id: 8 },
-  { name: "Antigua and Barbuda", code: "AG", id: 9 },
-  { name: "Argentina", code: "AR", id: 10 },
-  { name: "Armenia", code: "AM", id: 11 },
-  { name: "Aruba", code: "AW", id: 12 },
-  { name: "Australia", code: "AU", id: 13 },
-  { name: "Austria", code: "AT", id: 14 },
-  { name: "Azerbaijan", code: "AZ", id: 15 },
-  { name: "Bahamas", code: "BS", id: 16 },
-  { name: "Bahrain", code: "BH", id: 17 },
-  { name: "Bangladesh", code: "BD", id: 18 },
-  { name: "Barbados", code: "BB", id: 19 },
-  { name: "Belarus", code: "BY", id: 20 },
-]
+  { name: 'Afghanistan', code: 'AF', id: 0 },
+  { name: 'Aland Islands', code: 'AX', id: 1 },
+  { name: 'Albania', code: 'AL', id: 2 },
+  { name: 'Algeria', code: 'DZ', id: 3 },
+  { name: 'American Samoa', code: 'AS', id: 4 },
+  { name: 'Andorra', code: 'AD', id: 5 },
+  { name: 'Angola', code: 'AO', id: 6 },
+  { name: 'Anguilla', code: 'AI', id: 7 },
+  { name: 'Antarctica', code: 'AQ', id: 8 },
+  { name: 'Antigua and Barbuda', code: 'AG', id: 9 },
+  { name: 'Argentina', code: 'AR', id: 10 },
+  { name: 'Armenia', code: 'AM', id: 11 },
+  { name: 'Aruba', code: 'AW', id: 12 },
+  { name: 'Australia', code: 'AU', id: 13 },
+  { name: 'Austria', code: 'AT', id: 14 },
+  { name: 'Azerbaijan', code: 'AZ', id: 15 },
+  { name: 'Bahamas', code: 'BS', id: 16 },
+  { name: 'Bahrain', code: 'BH', id: 17 },
+  { name: 'Bangladesh', code: 'BD', id: 18 },
+  { name: 'Barbados', code: 'BB', id: 19 },
+  { name: 'Belarus', code: 'BY', id: 20 },
+];
 
 const postsMenu = [
   {
@@ -126,11 +126,11 @@ const postsMenu = [
     groupName: 'GROOOp',
     userName: 'ahmedirheem',
     userAvatar: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
-    
+
     content: {
       caption: 'HEEdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddEEEEEEEEEEEEEEEEELO',
       category: 'Politics',
-      images: ['https://images.unsplash.com/photo-1669082072800-ee5e9a06b8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80' ,'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg', '../assets/people-1284253_960_720.jpg'],
+      images: ['https://images.unsplash.com/photo-1669082072800-ee5e9a06b8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg', '../assets/people-1284253_960_720.jpg'],
       video: '../assets/yt5s.io-سورة الضحى _ عثمان مشعل الحداد(720p).mp4'
     },
 
@@ -155,4 +155,4 @@ const postsMenu = [
       },
     ]
   },
-]
+];
