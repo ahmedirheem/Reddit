@@ -22,7 +22,7 @@
 </head>
 <body>
   <!-- Start Header Section -->
-  <header>
+  <header class="logged-header">
     <div class="left">
       <a href="/" class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="_1O4jTk-dZ-VIxsCuYB6OR8 logo-icon">
@@ -61,29 +61,30 @@
       <input type="text" placeholder="Search Reddit">
     </div>
     <div class="right">
-      <span class="option-icon">
+      <a class="option-icon">
         <i class="fa-solid fa-arrow-trend-up"></i>
-      </span>
-      <span class="option-icon">
+      </a>
+      <a class="option-icon">
         <i class="fa-solid fa-coins"></i>
-      </span>
-      <span class="option-devider"></span>
-      <span class="option-icon">
+      </a>
+      <span class="option-divider"></span>
+      <a class="option-icon">
         <i class="fa-regular fa-comment-dots"></i>
-      </span>
-      <span class="option-icon">
+      </a>
+      <a class="option-icon">
         <i class="fa-regular fa-bell"></i>
-      </span>
-      <span class="option-icon">
+      </a>
+      <a class="option-icon">
         <i class="fa-solid fa-plus"></i>
-      </span>
-      <button class="ad-btn">
+      </a>
+      <a class="ad-btn">
         <i class="fa-solid fa-volume-high"></i>
         <span>Advertise</span>
-      </button>
+      </a>
       <button class="setting-btn">
         <div class="avatar">
-          <img src="./assets/people-1284253_960_720.jpg" alt="Avatar">
+          <img src="../assets/people-1284253_960_720.jpg" alt="Avatar">
+          <span class="active-icon"></span>
         </div>
         <div class="user">
           <span class="username">ahmedirheem</span>
@@ -91,9 +92,9 @@
             <i class="fa-solid fa-meteor"></i>
             1 Karma
           </span>
-          <div class="down-icon">
-            <i class="fa-solid fa-angle-down"></i>
-          </div>
+        </div>
+        <div class="down-icon">
+          <i class="fa-solid fa-angle-down"></i>
         </div>
       </button>
       <ul class="setting-menu"></ul>
@@ -103,7 +104,6 @@
   
   <script src="../data/sidebar.js"></script>
   <!-- <script src="../home/dom.js"></script> -->
-  <script src="../home/script.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
