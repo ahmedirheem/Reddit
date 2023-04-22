@@ -6,7 +6,7 @@ const loginSchema = Joi.object({
     'string.base': 'This field must be an email',
     'any.required': 'Email is a required field',
   }),
-  password: Joi.string().min(5).max(25).regex(/^[a-zA-Z0-9]{3}$/)
+  password: Joi.string().min(5).max(25)
     .required()
     .messages({
       'string.empty': 'This field must has a value',

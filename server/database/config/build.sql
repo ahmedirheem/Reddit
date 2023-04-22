@@ -4,17 +4,17 @@ DROP TABLE IF EXISTS posts, users, communities CASCADE;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  username VARCHAR(100) NOT NULL,
+  username VARCHAR(255) NOT NULL,
   avatar TEXT,
-  email VARCHAR(150) NOT NULL UNIQUE,
-  password VARCHAR(50) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
   signed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   followers INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE communities(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   avatar TEXT,
   members INTEGER NOT NULL,
   description TEXT

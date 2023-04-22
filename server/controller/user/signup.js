@@ -5,17 +5,18 @@ const { getUserByEmailQuery, signupQuery } = require('../../database');
 const signup = (req, res, next) => {
   const { email, password, username } = req.body;
 
-  getUserByEmailQuery({ email })
+  signupSchema.validateAsync({ email, password, username }, { abortEarly: false })
+    .then(() => getUserByEmailQuery({ email }))
     .then(({ rows }) => {
       if (rows.length) throw new CustomError('This email is already used', 400);
-      return signupSchema().validateAsync({ email, password, username }, { abortEarly: false });
     })
     .then(() => bcrypt.hash(password, 10))
     .then((hash) => ({ email, password: hash, username }))
     .then((data) => signupQuery(data))
     .then((data) => {
-      req.user = data;
-      signToken(data);
+      // eslint-disable-next-line prefer-destructuring
+      req.user = data.rows[0];
+      signToken(data.rows[0]);
     })
     .then((token) => {
       res

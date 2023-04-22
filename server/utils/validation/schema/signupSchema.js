@@ -6,12 +6,13 @@ const signupSchema = Joi.object({
     'string.base': 'This field must be an email',
     'any.required': 'Email is a required field',
   }),
-  password: Joi.string().min(5).max(25).regex(/^[a-zA-Z0-9]{3}$/)
+  password: Joi.string().min(5).max(25).regex(/[a-zA-Z0-9]/)
     .required()
     .messages({
       'string.empty': 'This field must has a value',
       'string.min': 'This field must be at least 5 characters',
       'string.max': 'This field must be at max 25 characters',
+      'string.base.pattern': 'Your password must has characters and numbers',
       'any.required': 'Password is a required field',
     }),
   username: Joi.string().min(5).max(50)

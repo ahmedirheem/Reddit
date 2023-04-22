@@ -1,14 +1,13 @@
 const bcrypt = require('bcrypt');
 const { getUserByEmailQuery } = require('../../database');
 const {
-  // eslint-disable-next-line no-unused-vars
   CustomError, loginSchema, signToken,
 } = require('../../utils');
 
 const login = (req, res, next) => {
-  const { email: userEmail, password } = req.body;
-
-  getUserByEmailQuery({ userEmail })
+  const { email, password } = req.body;
+  loginSchema.validateAsync({ email, password }, { abortEarly: false })
+    .then(() => getUserByEmailQuery({ email }))
     .then(({ rows }) => {
       if (!rows.length) throw new CustomError('Invalid email or password', 400);
       return rows[0];
@@ -21,6 +20,7 @@ const login = (req, res, next) => {
       if (!result) throw new CustomError('Invalid email or password', 400);
     })
     .then(() => {
+      // eslint-disable-next-line no-shadow
       const { id, email, username } = req.user;
       return signToken({ id, email, username }, { expiresIn: '1d' });
     })
