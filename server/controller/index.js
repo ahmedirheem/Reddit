@@ -1,3 +1,5 @@
+const { clientError, serverError } = require('./errors');
+
 const {
   getAllPosts,
   addPost,
@@ -5,13 +7,15 @@ const {
   deletePost,
 } = require('./post');
 
-const { clientError, serverError } = require('./errors');
+const { login, signup } = require('./user');
 
 module.exports = {
+  clientError,
+  serverError,
   getAllPosts,
   addPost,
   updatePost,
   deletePost,
-  clientError,
-  serverError,
+  login,
+  signup,
 };

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const { getUserByEmailQuery } = require('../../database');
 const {
+  // eslint-disable-next-line no-unused-vars
   CustomError, loginSchema, signToken,
 } = require('../../utils');
 
