@@ -7,7 +7,7 @@ const {
   deletePost,
 } = require('./post');
 
-const { login, signup } = require('./user');
+const { login, signup, logout } = require('./user');
 
 module.exports = {
   clientError,
@@ -18,4 +18,5 @@ module.exports = {
   deletePost,
   login,
   signup,
+  logout,
 };
