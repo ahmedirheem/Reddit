@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +21,7 @@
   <link rel="icon" type="image/png" sizes="192x192"
     href="https://www.redditstatic.com/desktop2x/img/favicon/android-icon-192x192.png">
 </head>
+
 <body>
   <!-- Start Header Section -->
   <header class="logged-header">
@@ -101,9 +103,86 @@
     </div>
   </header>
   <!-- End Header Section -->
-  
+
+  <div class="create-post-container">
+    <div class="create-head">
+      <h1>Create a post</h1>
+      <button>
+        DRAFTS
+        <span class="drafts-num">0</span>
+      </button>
+    </div>
+    <div class="choose-community">
+      <select name="community" id="community-select">
+        <option value="r/programming">r/programming</option>
+      </select>
+    </div>
+
+    <section class="post-section">
+      <div class="post-type">
+        <div class="type">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span>Post</span>
+        </div>
+        <div class="type">
+          <i class="fa-regular fa-image"></i>
+          <span>Images & Video</span>
+        </div>
+        <div class="type">
+          <i class="fa-solid fa-link"></i>
+          <span>Link</span>
+        </div>
+        <div class="type">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+          <span>Poll</span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="title-input">
+          <input type="text" placeholder="Title">
+          <span class="characters-limit">
+            <span class="used-characters">0</span>
+            /300
+          </span>
+        </div>
+
+        <section class="post-type-input"></section>
+        <section class="images-type-input">
+          <div class="images-input">
+            <input type="file">
+          </div>
+          <div class="submit-btns">
+            <button class="cancel-btn">Cancel</button>
+            <button class="post-btn">Post</button>
+          </div>
+        </section>
+        <section class="link-type-input">
+          <div class="url-input">
+            <input type="text" placeholder="Url">
+          </div>
+          <div class="submit-btns">
+            <button class="save-draft-btn">Save Draft</button>
+            <button class="post-btn">Post</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="post-footer">
+        <div class="notification">
+          <input type="checkbox" name="reply-notification" id="reply-notification">
+          <label>Send me reply notifications</label>
+        </div>
+        <div class="connect-link">
+          <a href="#">Connect accounts to share your post</a>
+          <i class="ri-information-line"></i>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <script src="../data/sidebar.js"></script>
   <!-- <script src="../home/dom.js"></script> -->
   <script src="script.js"></script>
 </body>
+
 </html>
