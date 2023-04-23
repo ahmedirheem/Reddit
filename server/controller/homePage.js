@@ -1,7 +1,8 @@
 const { join } = require('path');
 
 const homePage = (req, res) => {
-  res.sendFile(join(__dirname, '..', '..', 'public', 'index.html'));
+  console.log('homePage');
+  res.sendFile(join(__dirname, '..', '..', 'public', 'home', 'index.html'));
 };
 
 module.exports = homePage;

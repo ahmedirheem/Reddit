@@ -4,6 +4,9 @@ const {
   addPostQuery,
   updatePostQuery,
   deletePostQuery,
+  getPostByIdQuery,
+  addLikeQuery,
+  addDisLikeQuery,
 } = require('./post');
 
 module.exports = {
@@ -13,4 +16,7 @@ module.exports = {
   addPostQuery,
   updatePostQuery,
   deletePostQuery,
+  getPostByIdQuery,
+  addLikeQuery,
+  addDisLikeQuery,
 };

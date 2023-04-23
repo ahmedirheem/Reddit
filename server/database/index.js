@@ -6,6 +6,9 @@ const {
   addPostQuery,
   updatePostQuery,
   deletePostQuery,
+  getPostByIdQuery,
+  addLikeQuery,
+  addDisLikeQuery,
 } = require('./queries');
 
 module.exports = {
@@ -16,4 +19,7 @@ module.exports = {
   addPostQuery,
   updatePostQuery,
   deletePostQuery,
+  getPostByIdQuery,
+  addLikeQuery,
+  addDisLikeQuery,
 };

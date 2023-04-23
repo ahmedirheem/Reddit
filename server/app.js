@@ -21,7 +21,7 @@ app.use([
 
 app.use(express.static(join(__dirname, '..', 'public')));
 
-app.use('/api/v1', router);
+app.use(router);
 app.use(clientError);
 app.use(serverError);
 

@@ -5,11 +5,14 @@ const {
   addPost,
   updatePost,
   deletePost,
+  addLike,
+  addDisLike,
 } = require('./post');
 
 const { login, signup, logout } = require('./user');
 
 const homePage = require('./homePage');
+const loggedPage = require('./loggedPage');
 
 module.exports = {
   clientError,
@@ -22,4 +25,7 @@ module.exports = {
   signup,
   logout,
   homePage,
+  loggedPage,
+  addLike,
+  addDisLike,
 };
