@@ -49,7 +49,7 @@ const dropMenu = (element) => {
 
 // eslint-disable-next-line no-unused-vars
 const appearRightMenus = (ele, index) => {
-  for (let i = 0; i < ele.parentElement.children.length; i++) {
+  for (let i = 0; i < ele.parentElement.children.length; i += 1) {
     if (ele.parentElement.children[i] !== ele.nextSibling) {
       ele.parentElement.children[i].classList.remove('active');
     }
@@ -143,11 +143,6 @@ rightSideMenuData.forEach((item) => {
   appendChildren(rightSideMenu, menuItem, subMenu);
 });
 
-const testItem = postsMenu[0];
-
-
-createPostElement(testItem);
-
 // Start Login Page
 const logInPopup = document.querySelector('#login-popup-page');
 const logInHeaderBtn = document.querySelector('.log-in-btn');
@@ -203,6 +198,7 @@ getAppOverlay.addEventListener('click', () => {
 
 const signUpPopup = document.querySelector('#signup-popup-page');
 
+// eslint-disable-next-line no-undef
 const postSignUpBtn = postsContainer.querySelector('.post #post-join-btn');
 const navSignUpBtn = document.querySelector('nav .join-btn');
 const signUpLogInBtn = document.querySelector('#signup-login-btn');
@@ -250,4 +246,3 @@ document.querySelectorAll('.btn-navigate-form-step').forEach((formNavigationBtn)
 // End Sign Up Page
 
 // Get All Posts Section
-

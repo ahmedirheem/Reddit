@@ -6,8 +6,8 @@ const { isLogged } = require('../middleware');
 
 const router = express.Router();
 
-router.get('/', isLogged, loggedPage);
-router.get('/', homePage);
+// router.get('/', isLogged, loggedPage);
+router.get('/', loggedPage);
 router.use('/api/v1/post', postRouter);
 router.use('/api/v1/user', userRouter);
 

@@ -22,6 +22,7 @@ const appendChildren1 = (parent, ...children) => {
   });
 };
 
+// eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
   // console.log(data);
   const post = createHtmlElement1('div', 'post', 'post');
@@ -96,6 +97,7 @@ const createPostElement = (data) => {
   const moreSec = createHtmlElement1('div', 'more-sec');
 
   moreSec.addEventListener('click', () => {
+    // eslint-disable-next-line no-undef
     dropMenu(moreSec);
   });
 
