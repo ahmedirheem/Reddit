@@ -3,7 +3,17 @@ const settingMenu = document.querySelector('.setting-menu');
 const sidebarMenu = document.querySelector('.sidebar-menu');
 const rightSideMenu = document.querySelector('.right-side-menus');
 const risingMenu = document.querySelector('.rising-menu');
-const postsContainer = document.querySelector('.posts-container');
+
+window.onload = () => {
+  fetch('/api/v1/post')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.data.posts);
+      // eslint-disable-next-line no-undef
+      data.data.posts.forEach((post) => createPostElement(post));
+    })
+    .catch((err) => console.log(err));
+};
 
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
@@ -135,117 +145,6 @@ rightSideMenuData.forEach((item) => {
 
 const testItem = postsMenu[0];
 
-const createPostElement = (testItem) => {
-  const post = createHtmlElement('div', 'post', 'post');
-
-  const leftSide = createHtmlElement('div', 'left-side');
-
-  const upIcon = createHtmlElement('i', 'fa-regular fa-circle-up');
-  const likesNum = testItem.likes - testItem.disLikes;
-  const likesCount = createHtmlElement('span', 'likes-count', null, `${likesNum}`);
-  const downIcon = createHtmlElement('i', 'fa-regular fa-circle-down');
-
-  appendChildren(leftSide, upIcon, likesCount, downIcon);
-
-  const rightSide = createHtmlElement('div', 'right-side');
-
-  const postHead = createHtmlElement('div', 'post-head');
-
-  const avatar = createHtmlElement('img', 'avatar');
-  avatar.src = testItem.userAvatar;
-  const groupLink = createHtmlElement('a', 'group-link', null, testItem.groupName);
-  const dotItem = createHtmlElement('span', 'dot-item', null, '•');
-  const postedBy = createHtmlElement('span', 'posted-by', null, 'Posted by');
-  const userName = createHtmlElement('a', 'username', null, testItem.userName);
-  userName.setAttribute('href', '#');
-  postedBy.appendChild(userName);
-  const postedAt = createHtmlElement('span', 'posted-at', null, testItem.time);
-  const joinBtn = createHtmlElement('button', 'join-btn', 'post-join-btn', 'join');
-
-  appendChildren(postHead, avatar, groupLink, dotItem, postedBy, postedAt, joinBtn);
-
-  const postCaption = createHtmlElement('div', 'post-caption');
-
-  const captionText = createHtmlElement('h3', 'caption-text', null, testItem.content.caption);
-  const category = createHtmlElement('a', 'category', null, testItem.content.category);
-  category.setAttribute('href', '#');
-  category.style.background = '#ff4500';
-
-  appendChildren(postCaption, captionText, category);
-
-  const postMedia = createHtmlElement('div', 'post-media');
-
-  if (testItem.content.images.length) {
-    const postImage = createHtmlElement('img', 'post-image');
-    postImage.src = testItem.content.images[0];
-    postMedia.appendChild(postImage);
-  } else {
-    const postVideo = createHtmlElement('img', 'post-video');
-    postVideo.src = testItem.content.video;
-    postMedia.appendChild(postVideo);
-  }
-
-  const postSocial = createHtmlElement('div', 'post-social');
-
-  const commentSec = createHtmlElement('div', 'comment-sec');
-  const commentIcon = createHtmlElement('i', 'fa-regular fa-message');
-  const commentsCount = createHtmlElement('span', 'title', null, `${testItem.comments.length} Comments`);
-
-  appendChildren(commentSec, commentIcon, commentsCount);
-
-  const shareSec = createHtmlElement('div', 'share-sec');
-  const shareIcon = createHtmlElement('i', 'ri-corner-up-right-fill');
-  const shareSpan = createHtmlElement('span', 'title', null, 'Share');
-
-  appendChildren(shareSec, shareIcon, shareSpan);
-
-  const saveSec = createHtmlElement('div', 'save-sec');
-  const saveIcon = createHtmlElement('i', 'fa-regular fa-bookmark');
-  const saveSpan = createHtmlElement('span', 'title', null, 'Save');
-
-  appendChildren(saveSec, saveIcon, saveSpan);
-
-  const moreSec = createHtmlElement('div', 'more-sec');
-
-  moreSec.addEventListener('click', () => {
-    dropMenu(moreSec);
-  });
-
-  const moreIconSpan = createHtmlElement('span', 'more-icon');
-  const moreIcon = createHtmlElement('i', 'fa-solid fa-ellipsis');
-  moreIconSpan.appendChild(moreIcon);
-  const moreMenu = createHtmlElement('ul', 'more-menu');
-
-  const menuItem1 = createHtmlElement('li');
-  const menuItemIcon1 = createHtmlElement('i', 'ri-volume-mute-line');
-  const menuItemTitle1 = createHtmlElement('span', 'item-title', null, `Mute ${testItem.groupName}`);
-
-  appendChildren(menuItem1, menuItemIcon1, menuItemTitle1);
-
-  const menuItem2 = createHtmlElement('li');
-  const menuItemIcon2 = createHtmlElement('i', 'fa-regular fa-eye-slash');
-  const menuItemTitle2 = createHtmlElement('span', 'item-title', null, 'Hide');
-
-  appendChildren(menuItem2, menuItemIcon2, menuItemTitle2);
-
-  const menuItem3 = createHtmlElement('li');
-  const menuItemIcon3 = createHtmlElement('i', 'fa-regular fa-flag');
-  const menuItemTitle3 = createHtmlElement('span', 'item-title', null, 'Report');
-
-  appendChildren(menuItem3, menuItemIcon3, menuItemTitle3);
-
-  appendChildren(moreMenu, menuItem1, menuItem2, menuItem3);
-
-  appendChildren(moreSec, moreIconSpan, moreMenu);
-
-  appendChildren(postSocial, commentSec, shareSec, saveSec, moreSec);
-
-  appendChildren(rightSide, postHead, postCaption, postMedia, postSocial);
-
-  appendChildren(post, leftSide, rightSide);
-
-  postsContainer.prepend(post);
-};
 
 createPostElement(testItem);
 
@@ -349,3 +248,6 @@ document.querySelectorAll('.btn-navigate-form-step').forEach((formNavigationBtn)
   });
 });
 // End Sign Up Page
+
+// Get All Posts Section
+

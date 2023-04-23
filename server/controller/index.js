@@ -9,6 +9,8 @@ const {
 
 const { login, signup, logout } = require('./user');
 
+const homePage = require('./homePage');
+
 module.exports = {
   clientError,
   serverError,
@@ -19,4 +21,5 @@ module.exports = {
   login,
   signup,
   logout,
+  homePage,
 };

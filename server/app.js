@@ -1,3 +1,4 @@
+const { join } = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const express = require('express');
@@ -17,6 +18,8 @@ app.use([
   cookieParser(),
   compression(),
 ]);
+
+app.use(express.static(join(__dirname, '..', 'public')));
 
 app.use('/api/v1', router);
 app.use(clientError);

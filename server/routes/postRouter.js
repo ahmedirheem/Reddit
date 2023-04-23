@@ -10,7 +10,7 @@ const {
 const postRouter = express.Router();
 
 postRouter.get('/', getAllPosts);
-postRouter.post('/create', addPost);
+postRouter.post('/submit', addPost);
 postRouter.delete('/delete', deletePost);
 postRouter.put('/update', updatePost);
 

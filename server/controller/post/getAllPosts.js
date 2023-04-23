@@ -1,9 +1,8 @@
-const getAllPostsQuery = require('../../database/queries/post/getAllPostsQuery');
+const { getAllPostsQuery } = require('../../database');
 
 const getAllPosts = (req, res, next) => {
   getAllPostsQuery()
     .then((data) => {
-      console.log(data.rows);
       res.json({
         error: false,
         data: {

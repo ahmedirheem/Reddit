@@ -1,4 +1,4 @@
-const addPostQuery = require('../../database/queries/post/addPostQuery');
+const { addPostQuery } = require('../../database');
 
 const addPost = (req, res, next) => {
   const {

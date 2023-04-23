@@ -1,4 +1,4 @@
-const updatePostQuery = require('../../database/queries/post/updatePostQuery');
+const { updatePostQuery } = require('../../database');
 
 const updatePost = (req, res, next) => {
   const {
