@@ -1,7 +1,7 @@
 const { join } = require('path');
 
 const loggedPage = (req, res) => {
-  res.sendFile(join(__dirname, '..', '..', 'public', 'home', 'logged.html'));
+  res.sendFile(join(__dirname, '..', '..', '..', 'public', 'pages', 'logged.html'));
 };
 
 module.exports = loggedPage;

@@ -11,8 +11,7 @@ const {
 
 const { login, signup, logout } = require('./user');
 
-const homePage = require('./homePage');
-const loggedPage = require('./loggedPage');
+const { homePage, loggedPage, createPostPage } = require('./pages');
 
 module.exports = {
   clientError,
@@ -26,6 +25,7 @@ module.exports = {
   logout,
   homePage,
   loggedPage,
+  createPostPage,
   addLike,
   addDisLike,
 };

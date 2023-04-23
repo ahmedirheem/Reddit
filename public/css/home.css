@@ -764,7 +764,9 @@ section.body {
 .post .left-side i:last-of-type:hover {
   color: #5a75cc;
 }
-
+.post .right-side {
+  flex: 1;
+}
 .post .post-head {
   padding: 8px;
   font-family: var(--main-font);

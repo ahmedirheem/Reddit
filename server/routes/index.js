@@ -1,13 +1,14 @@
 const express = require('express');
 const postRouter = require('./postRouter');
 const userRouter = require('./userRouter');
-const { homePage, loggedPage } = require('../controller');
+const { homePage, loggedPage, createPostPage } = require('../controller');
 const { isLogged } = require('../middleware');
 
 const router = express.Router();
 
-// router.get('/', isLogged, loggedPage);
 router.get('/', loggedPage);
+router.get('/', homePage);
+router.get('/submit', createPostPage);
 router.use('/api/v1/post', postRouter);
 router.use('/api/v1/user', userRouter);
 
