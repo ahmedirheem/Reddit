@@ -8,6 +8,7 @@ const {
 } = require('../controller');
 
 const { addLike, addDisLike } = require('../controller');
+const { isLogged } = require('../middleware');
 
 const postRouter = express.Router();
 
@@ -15,7 +16,7 @@ postRouter.get('/', getAllPosts);
 postRouter.post('/submit', addPost);
 postRouter.delete('/delete', deletePost);
 postRouter.put('/update', updatePost);
-postRouter.get('/like', addLike);
-postRouter.get('/dislike', addDisLike);
+postRouter.post('/like', isLogged, addLike);
+postRouter.post('/dislike', isLogged, addDisLike);
 
 module.exports = postRouter;

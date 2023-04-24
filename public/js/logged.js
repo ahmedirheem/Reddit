@@ -44,6 +44,17 @@ window.onload = () => {
     .catch((err) => console.log(err));
 };
 
+window.onload = () => {
+  fetch('/api/v1/post')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.data.posts);
+      // eslint-disable-next-line no-undef
+      data.data.posts.forEach((post) => createPostElement(post));
+    })
+    .catch((err) => console.log(err));
+};
+
 // eslint-disable-next-line no-undef
 settingMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');

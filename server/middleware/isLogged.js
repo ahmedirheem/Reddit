@@ -1,9 +1,13 @@
-const { verifyToken, CustomError } = require('../utils');
+const { verifyToken } = require('../utils');
 
 const isLogged = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
-    throw new CustomError('Unauthorized!', 400);
+    res.json({
+      error: true,
+      message: 'Unauthorized!',
+    });
+    // throw new CustomError('Unauthorized!', 400);
   }
   verifyToken({ token })
     .then(() => res.redirect('/'))
