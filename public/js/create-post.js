@@ -1,4 +1,4 @@
-const titleInput = document.querySelector('.title-input');
+const titleInput = document.querySelector('.title-input input');
 
 const postTextInput = document.querySelector('#post-text-input');
 const urlInput = document.querySelector('.url-input');
@@ -15,6 +15,7 @@ const postUrlBtn = document.querySelector('.link-type-input .post-btn');
 const signedUser = JSON.parse(localStorage.getItem('logged-user'));
 
 postTextBtn.addEventListener('click', () => {
+  console.log(titleInput.value);
   fetch('/api/v1/post/submit', {
     method: 'POST',
     headers: {

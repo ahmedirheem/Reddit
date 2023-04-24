@@ -26,6 +26,7 @@ CREATE TABLE posts(
   caption TEXT,
   images TEXT,
   video TEXT,
+  link TEXT,
   likes INTEGER NOT NULL DEFAULT 0,
   dislikes INTEGER NOT NULL DEFAULT 0,
   posted_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
