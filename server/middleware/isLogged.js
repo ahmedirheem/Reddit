@@ -1,12 +1,15 @@
-const { verifyToken, CustomError } = require('../utils');
+const { verifyToken } = require('../utils');
 
 const isLogged = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
-    next();
+    return next();
   }
   verifyToken({ token })
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.accessLogged = true;
+      next();
+    })
     .catch(() => {
       res.clearCookie('token');
       next();

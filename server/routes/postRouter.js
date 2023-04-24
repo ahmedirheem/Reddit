@@ -9,7 +9,7 @@ const {
 } = require('../controller');
 
 const { addLike, addDisLike } = require('../controller');
-const { isLogged } = require('../middleware');
+// const { isLogged } = require('../middleware');
 
 const postRouter = express.Router();
 
