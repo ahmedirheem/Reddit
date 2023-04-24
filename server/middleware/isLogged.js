@@ -3,11 +3,14 @@ const { verifyToken, CustomError } = require('../utils');
 const isLogged = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
-    throw new CustomError('Unauthorized!', 400);
+    next();
   }
   verifyToken({ token })
     .then(() => res.redirect('/'))
-    .catch((err) => next(err));
+    .catch(() => {
+      res.clearCookie('token');
+      next();
+    });
 };
 
 module.exports = isLogged;

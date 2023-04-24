@@ -87,16 +87,6 @@ const showSignupPage = () => {
 
 // End Global Functions
 
-window.onload = () => {
-  fetch('/api/v1/post')
-    .then((res) => res.json())
-    .then((data) => {
-      // eslint-disable-next-line no-undef
-      data.data.posts.forEach((post) => createPostElement(post));
-    })
-    .catch((err) => console.log(err));
-};
-
 // Start Create Post Section
 
 const createPostElement = (data) => {
@@ -219,6 +209,16 @@ const createPostElement = (data) => {
   appendChildren(post, leftSide, rightSide);
 
   postsContainer.prepend(post);
+};
+
+window.onload = () => {
+  fetch('/api/v1/post')
+    .then((res) => res.json())
+    .then((data) => {
+      // eslint-disable-next-line no-undef
+      data.data.posts.forEach((post) => createPostElement(post));
+    })
+    .catch((err) => console.log(err));
 };
 
 // Start Create Post Section
