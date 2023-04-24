@@ -5,6 +5,7 @@ const addPost = (req, res, next) => {
     title, caption, images, video, posterId, communityId,
   } = req.body;
 
+  console.log(title, caption, images, video, posterId, communityId,);
   addPostQuery({
     title, caption, images, video, posterId, communityId,
   })
