@@ -1,4 +1,5 @@
 const getAllPosts = require('./getAllPosts');
+const getUserPosts = require('./getUserPosts');
 const addPost = require('./addPost');
 const updatePost = require('./updatePost');
 const deletePost = require('./deletePost');
@@ -7,6 +8,7 @@ const addDisLike = require('./addDisLike');
 
 module.exports = {
   getAllPosts,
+  getUserPosts,
   addPost,
   updatePost,
   deletePost,

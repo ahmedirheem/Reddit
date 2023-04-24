@@ -3,6 +3,7 @@ const { getUserByEmailQuery, signupQuery } = require('./queries');
 
 const {
   getAllPostsQuery,
+  getUserPostsQuery,
   addPostQuery,
   updatePostQuery,
   deletePostQuery,
@@ -16,6 +17,7 @@ module.exports = {
   signupQuery,
   getUserByEmailQuery,
   getAllPostsQuery,
+  getUserPostsQuery,
   addPostQuery,
   updatePostQuery,
   deletePostQuery,

@@ -2,6 +2,7 @@ const { clientError, serverError } = require('./errors');
 
 const {
   getAllPosts,
+  getUserPosts,
   addPost,
   updatePost,
   deletePost,
@@ -17,6 +18,7 @@ module.exports = {
   clientError,
   serverError,
   getAllPosts,
+  getUserPosts,
   addPost,
   updatePost,
   deletePost,
