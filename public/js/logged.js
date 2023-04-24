@@ -1,6 +1,8 @@
 const settingBtn = document.querySelector('.setting-btn');
 const settingMenu = document.querySelector('.setting-menu');
 
+const loggedUser = JSON.parse(localStorage.getItem('logged-user'));
+
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
 
@@ -37,23 +39,14 @@ window.onload = () => {
   fetch('/api/v1/post')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.data.posts);
       // eslint-disable-next-line no-undef
       data.data.posts.forEach((post) => createPostElement(post));
     })
     .catch((err) => console.log(err));
 };
 
-window.onload = () => {
-  fetch('/api/v1/post')
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.data.posts);
-      // eslint-disable-next-line no-undef
-      data.data.posts.forEach((post) => createPostElement(post));
-    })
-    .catch((err) => console.log(err));
-};
+const avatarImg = document.querySelector('.setting-btn .avatar img');
+avatarImg.setAttribute('src', loggedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
 
 // eslint-disable-next-line no-undef
 settingMenuData.forEach((item) => {

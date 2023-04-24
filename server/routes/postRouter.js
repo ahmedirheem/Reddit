@@ -16,7 +16,7 @@ postRouter.get('/', getAllPosts);
 postRouter.post('/submit', addPost);
 postRouter.delete('/delete', deletePost);
 postRouter.put('/update', updatePost);
-postRouter.post('/like', isLogged, addLike);
-postRouter.post('/dislike', isLogged, addDisLike);
+postRouter.post('/like', addLike);
+postRouter.post('/dislike', addDisLike);
 
 module.exports = postRouter;

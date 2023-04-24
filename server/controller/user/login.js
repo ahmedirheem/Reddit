@@ -35,7 +35,10 @@ const login = (req, res, next) => {
           },
         });
     })
-    .catch((err) => next(err));
+    .catch((err) => {
+      console.log(err);
+      next(err)
+    });
 };
 
 module.exports = login;

@@ -1,5 +1,7 @@
 const settingBtn = document.querySelector('.setting-btn');
 const settingMenu = document.querySelector('.setting-menu');
+// Start Variables Section
+
 const sidebarMenu = document.querySelector('.sidebar-menu');
 const rightSideMenu = document.querySelector('.right-side-menus');
 const risingMenu = document.querySelector('.rising-menu');
@@ -8,6 +10,9 @@ const signUpPopup = document.querySelector('#signup-popup-page');
 const logInPopup = document.querySelector('#login-popup-page');
 const logInOverlay = document.querySelector('.overlay-login');
 
+// End Variables Section
+
+// Start Global Functions
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
 
@@ -60,18 +65,14 @@ risingMenu.addEventListener('click', () => {
 });
 
 const showLoginPage = () => {
-  // eslint-disable-next-line no-undef
   logInPopup.style.display = 'flex';
-  // eslint-disable-next-line no-undef
   logInOverlay.style.display = 'block';
   document.body.style.overflow = 'hidden';
   signUpPopup.style.display = 'none';
 };
 
 const showSignupPage = () => {
-  // eslint-disable-next-line no-undef
   signUpPopup.style.display = 'flex';
-  // eslint-disable-next-line no-undef
   logInOverlay.style.display = 'block';
   document.body.style.overflow = 'hidden';
   logInPopup.style.display = 'none';
@@ -84,6 +85,8 @@ const showSignupPage = () => {
 //   }
 // })
 
+// End Global Functions
+
 window.onload = () => {
   fetch('/api/v1/post')
     .then((res) => res.json())
@@ -94,9 +97,9 @@ window.onload = () => {
     .catch((err) => console.log(err));
 };
 
-// Create Post Section
+// Start Create Post Section
+
 const createPostElement = (data) => {
-  // console.log(data);
   const post = createHtmlElement('div', 'post', 'post');
 
   const leftSide = createHtmlElement('div', 'left-side');
@@ -218,6 +221,9 @@ const createPostElement = (data) => {
   postsContainer.prepend(post);
 };
 
+// Start Create Post Section
+
+// Start Setting Menu Section
 // eslint-disable-next-line no-undef
 settingMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
@@ -244,7 +250,9 @@ settingMenuData.forEach((item) => {
     settingMenu.appendChild(menuItem);
   }
 });
+// End Setting Menu Section
 
+// Start left Sidebar Menu Section
 // eslint-disable-next-line no-undef
 leftSidebarMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
@@ -266,7 +274,9 @@ leftSidebarMenuData.forEach((item) => {
   appendChildren(menuItem, itemIcon, itemTitle, itemMoreIcon);
   appendChildren(sidebarMenu, menuItem, subMenu);
 });
+// End left Sidebar Menu Section
 
+// Start right Sidebar Menu Section
 // eslint-disable-next-line no-undef
 rightSideMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
@@ -287,39 +297,9 @@ rightSideMenuData.forEach((item) => {
   appendChildren(menuItem, itemTitle, itemMoreIcon);
   appendChildren(rightSideMenu, menuItem, subMenu);
 });
+// End right Sidebar Menu Section
 
-// Start Login Page
-// const logInPopup = document.querySelector('#login-popup-page');
-// const logInOverlay = document.querySelector('.overlay-login');
-const logInHeaderBtn = document.querySelector('.log-in-btn');
-const logInMenuBtn = settingMenu.lastElementChild;
-const logInSignUpBtn = document.querySelector('#login-signup-btn');
-const closeLogInPopupBtn = document.querySelector('#login-popup-page .close-icon');
-const loginBtns = [logInHeaderBtn, logInMenuBtn, logInSignUpBtn];
-
-// eslint-disable-next-line max-len
-// const logInInputFocused = document.querySelector('#login-popup-page .login-form #username-input');
-
-loginBtns.forEach((button) => {
-  button.addEventListener('click', () => {
-    // eslint-disable-next-line no-undef
-    logInPopup.style.display = 'flex';
-    // eslint-disable-next-line no-undef
-    logInOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-closeLogInPopupBtn.addEventListener('click', () => {
-  // eslint-disable-next-line no-undef
-  logInPopup.style.display = 'none';
-  // eslint-disable-next-line no-undef
-  logInOverlay.style.display = 'none';
-});
-
-// End Login Page
-
-// Start Get App Page
+// Start Get App Popup
 const getAppBtn = document.querySelector('.get-app-btn');
 const getAppPopup = document.querySelector('#getapp-popup-page');
 const getAppOverlay = document.querySelector('#get-app-overlay');
@@ -341,21 +321,65 @@ getAppOverlay.addEventListener('click', () => {
   getAppOverlay.style.display = 'none';
 });
 
-// End Get App Page
+// End Get App Popup
+
+// Start Login Popup Section
+const logInHeaderBtn = document.querySelector('.log-in-btn');
+const logInMenuBtn = settingMenu.lastElementChild;
+const logInSignUpBtn = document.querySelector('#login-signup-btn');
+const closeLogInPopupBtn = document.querySelector('#login-popup-page .close-icon');
+const loginSubmitBtn = document.getElementById('login-submit-btn');
+const loginBtns = [logInHeaderBtn, logInMenuBtn, logInSignUpBtn];
+
+let loggedUserData;
+loginBtns.forEach((button) => {
+  button.addEventListener('click', () => {
+    showLoginPage();
+  });
+});
+
+closeLogInPopupBtn.addEventListener('click', () => {
+  logInPopup.style.display = 'none';
+  logInOverlay.style.display = 'none';
+});
+
+loginSubmitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const loginUsernameInput = document.querySelector('#login-popup-page #username-input');
+  const loginPasswordInput = document.querySelector('#login-popup-page #password-input');
+
+  fetch('/api/v1/user/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: loginUsernameInput.value,
+      password: loginPasswordInput.value,
+    }),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      loggedUserData = result.data.user;
+      localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+      window.location.href = '/';
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log('Login Error');
+    });
+});
+// End Login Popup Section
 
 // Start Sign Up Page
-
-
-// eslint-disable-next-line no-undef
 const navSignUpBtn = document.querySelector('nav .join-btn');
 const signUpLogInBtn = document.querySelector('#signup-login-btn');
-
+const signupSubmitBtn = document.getElementById('signup-submit-btn');
 const closeSignUpPopupBtns = document.querySelectorAll('#signup-popup-page .close-icon');
-
 const signUpBtns = [navSignUpBtn, signUpLogInBtn];
 
 logInSignUpBtn.addEventListener('click', () => {
-  // eslint-disable-next-line no-undef
   showLoginPage();
 });
 
@@ -368,7 +392,6 @@ signUpBtns.forEach((button) => {
 closeSignUpPopupBtns.forEach((button) => {
   button.addEventListener('click', () => {
     signUpPopup.style.display = 'none';
-    // eslint-disable-next-line no-undef
     logInOverlay.style.display = 'none';
   });
 });
@@ -386,6 +409,37 @@ document.querySelectorAll('.btn-navigate-form-step').forEach((formNavigationBtn)
     navigateToFormStep(stepNumber);
   });
 });
-// End Sign Up Page
+
+signupSubmitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const signupEmailInput = document.querySelector('#signup-popup-page #email-input');
+  const signupUsernameInput = document.querySelector('#signup-popup-page #username-input');
+  const signupPasswordInput = document.querySelector('#signup-popup-page #password-input');
+
+  fetch('/api/v1/user/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: signupEmailInput.value,
+      username: signupUsernameInput.value,
+      password: signupPasswordInput.value,
+    }),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      loggedUserData = result.data.user;
+      localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+      window.location.href = '/';
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log('signup Error');
+    });
+});
+
+// End Sign Up Popup
 
 // Get All Posts Section

@@ -68,7 +68,9 @@ const createPostElement = (data) => {
         downIcon.style.pointerEvent = 'none';
         upIcon.style.color = '#878a8c';
       })
-      .catch(() => console.log('Dislike Error'));
+      .catch((err) => {
+        console.log(err);
+        console.log('Dislike Error')});
   });
 
   appendChildren1(leftSide, upIcon, likesCount, downIcon);

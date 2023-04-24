@@ -4,7 +4,6 @@ const { getUserByEmailQuery, signupQuery } = require('../../database');
 
 const signup = (req, res, next) => {
   const { email, password, username } = req.body;
-
   signupSchema.validateAsync({ email, password, username }, { abortEarly: false })
     .then(() => getUserByEmailQuery({ email }))
     .then(({ rows }) => {
@@ -16,7 +15,7 @@ const signup = (req, res, next) => {
     .then((data) => {
       // eslint-disable-next-line prefer-destructuring
       req.user = data.rows[0];
-      signToken(data.rows[0]);
+      return signToken(req.user);
     })
     .then((token) => {
       res
