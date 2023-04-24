@@ -1,5 +1,3 @@
-const userPostsContainer = document.querySelector('.user-posts-container');
-
 window.onload = () => {
   fetch('/api/v1/post/user-posts', {
     method: 'POST',
