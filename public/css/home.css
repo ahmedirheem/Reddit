@@ -397,10 +397,10 @@ nav .join-btn {
 
 /* ---- Start Body Section ---- */
 section.body {
-  float: right;
   padding: 66px 10%;
   width: 100%;
   max-width: 990px;
+  margin-left: 300px;
 }
 
 @media (min-width: 1250px) {

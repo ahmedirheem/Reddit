@@ -88,11 +88,6 @@ const createPostElement = (data) => {
   const userName = createHtmlElement1('a', 'username', null, data.username);
   userName.setAttribute('href', `/${data.username}`);
 
-  // userName.addEventListener('click', () => {
-  //   window.location.href = `/${data.username}`;
-
-  // });
-
   postedBy.appendChild(userName);
   const postedAt = createHtmlElement1('span', 'posted-at', null, data.posted_at);
 

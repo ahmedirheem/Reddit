@@ -62,7 +62,6 @@ ul.profile-menu a {
   line-height: 40px;
   color: var(--dark-bg-color);
   padding: 0 0.5rem;
-  transition: 0.3s ease-in-out;
   height: 100%;
   font-family: var(--main-font);
   text-transform: uppercase;
@@ -83,9 +82,53 @@ ul.profile-menu a.active {
 /* Start Post Section */
 section.body {
   padding: 100px 0 20px !important;
+  margin: 0 auto !important;
+  float: none;
 }
 
 section.body .posts-head{
   min-width: 640px;
 }
 /* End Post Section */
+
+/* Start User Card */
+.card-container {
+	background-color: var(--white-color);
+	border-radius: 5px;
+	box-shadow: 0 0 0 0 var(--white-color);
+	color: #B3B8CD;
+	padding-top: 30px;
+	position: relative;
+	width: 300px;
+	max-width: 100%;
+	text-align: center;
+  font-family: var(--main-font);
+}
+
+.card-container .round {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+	border-radius: 50%;
+	padding: 7px;
+}
+.card-container .buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.card-container .buttons button {
+  font-family: var(--main-font);
+	background-color: var(--blue-color);
+	border: 1px solid var(--blue-color);
+	border-radius: 9999px;
+	color: var(--white-color);
+	font-weight: 700;
+	padding: 5px 25px;
+  flex: 1;
+  cursor: pointer;
+}
+/* End User Card */
