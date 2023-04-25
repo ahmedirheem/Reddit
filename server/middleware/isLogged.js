@@ -1,5 +1,6 @@
 const { verifyToken } = require('../utils');
 
+// eslint-disable-next-line consistent-return
 const isLogged = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {

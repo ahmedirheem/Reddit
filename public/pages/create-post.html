@@ -105,7 +105,7 @@
   <!-- End Header Section -->
 
   <!-- Start Sidebar Section -->
-  <nav>
+  <nav style="display: none;">
     <div>
       <span class="title">Feeds</span>
       <ul class="main-menu">
@@ -147,26 +147,27 @@
       </button>
     </div>
     <div class="choose-community">
+      <img src="../assets//circle-regular.svg" alt="">
       <select name="community" id="community-select">
-        <option value="r/programming">r/programming</option>
+        <option value="r/programming">Choose a community</option>
       </select>
     </div>
 
     <section class="post-section">
-      <div class="post-type">
-        <div class="type">
+      <div class="post-types">
+        <div class="type active" id="post-type-btn">
           <i class="fa-solid fa-clipboard-list"></i>
           <span>Post</span>
         </div>
-        <div class="type">
+        <div class="type" id="image-type-btn">
           <i class="fa-regular fa-image"></i>
           <span>Images & Video</span>
         </div>
-        <div class="type">
+        <div class="type" id="link-type-btn">
           <i class="fa-solid fa-link"></i>
           <span>Link</span>
         </div>
-        <div class="type">
+        <div class="type" id="poll-type-btn" style="cursor: not-allowed; pointer-events:none;">
           <i class="fa-solid fa-square-poll-vertical"></i>
           <span>Poll</span>
         </div>
@@ -175,14 +176,12 @@
         <div class="title-input">
           <input type="text" placeholder="Title">
           <span class="characters-limit">
-            <span class="used-characters">0</span>
-            /300
-          </span>
+            <span class="used-characters">0</span>/300</span>
         </div>
 
         <section class="post-type-input">
-          <input type="text" id="post-text-input">
-          
+          <textarea id="post-text-input" cols="30" rows="10"></textarea>
+
           <div class="submit-btns">
             <button class="save-draft-btn">Save Draft</button>
             <button class="post-btn">Post</button>
@@ -190,7 +189,8 @@
         </section>
         <section class="images-type-input">
           <div class="images-input">
-            <input type="file" >
+            <label>Choose Images</label>
+            <input type="file" id="choose-img-btn"/>
           </div>
           <div class="submit-btns">
             <button class="cancel-btn">Cancel</button>
@@ -199,7 +199,7 @@
         </section>
         <section class="link-type-input">
           <div class="url-input">
-            <input type="text" placeholder="Url">
+            <textarea placeholder="Url" cols="30" rows="10"></textarea>
           </div>
           <div class="submit-btns">
             <button class="save-draft-btn">Save Draft</button>
@@ -210,7 +210,7 @@
 
       <div class="post-footer">
         <div class="notification">
-          <input type="checkbox" name="reply-notification" id="reply-notification">
+          <input type="checkbox" name="reply-notification" id="reply-notification" checked>
           <label>Send me reply notifications</label>
         </div>
         <div class="connect-link">
