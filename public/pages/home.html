@@ -394,10 +394,12 @@
           <input type="text" id="username-input">
           <label for="username-input">Username</label>
         </div>
+        <span class="validate-message username-validate">Validate Message</span>
         <div class="input">
           <input type="password" id="password-input">
           <label for="password-input">Password</label>
         </div>
+        <span class="validate-message password-validate">Validate Message</span>
         <span class="forget-ask">
           Forget your <a href="#">username</a> or <a href="#">password</a> ?
         </span>
@@ -475,9 +477,10 @@
 
         <form class="login-form">
           <div class="input">
-            <input type="text" id="email-input">
+            <input type="email" id="email-input">
             <label for="email-input">Email</label>
           </div>
+          <span class="validate-message email-validate">Validate Message</span>
           <input class="login-btn btn-navigate-form-step" type="button" value="Continue" step_number="2">
           <span class="sign-up-link">
             Already a redditor? <a href="#" id="login-signup-btn">Log In</a>
@@ -507,11 +510,13 @@
             <input type="text" id="username-input">
             <label for="username-input">Username</label>
           </div>
+          <span class="validate-message signup-username-validate">Validate Message</span>
           <div class="input">
             <input type="password" id="password-input">
             <label for="password-input">Password</label>
           </div>
-          <input class="login-btn btn-navigate-form-step" type="submit" value="Continue" id="signup-submit-btn">
+          <span class="validate-message signup-password-validate">Validate Message</span>
+          <input class="login-btn" type="submit" value="Continue" id="signup-submit-btn">
         </form>
       </section>
     </div>

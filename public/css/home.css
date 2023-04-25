@@ -1188,7 +1188,7 @@ section.body {
 .log-in-popup {
   max-width: 400px !important;
   height: 640px !important;
-  border-radius: 14px !important;
+  border-radius: 14px !important; 
 }
 
 .log-in-popup .close-icon,
@@ -1401,6 +1401,15 @@ section.body {
   left: 16px;
   top: 5px;
   transform: translateY(0);
+}
+
+.log-in-popup .validate-message{
+  font-family: var(--main-font);
+  font-size: 14px;
+  color: var(--orange-color);
+  margin: 0.5rem;
+  font-weight: 500;
+  display: none;
 }
 
 .log-in-popup .forget-ask,

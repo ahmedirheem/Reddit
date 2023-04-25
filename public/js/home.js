@@ -352,27 +352,72 @@ loginSubmitBtn.addEventListener('click', (e) => {
   const loginUsernameInput = document.querySelector('#login-popup-page #username-input');
   const loginPasswordInput = document.querySelector('#login-popup-page #password-input');
 
-  fetch('/api/v1/user/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: loginUsernameInput.value,
-      password: loginPasswordInput.value,
-    }),
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      loggedUserData = result.data.user;
-      // const { id, email, avatar, username, followers, signed_at } = result.data.user;
-      localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
-      window.location.href = '/';
+  const usernameValidateMsg = document.querySelector('.validate-message.username-validate');
+  const passwordValidateMsg = document.querySelector('.validate-message.password-validate');
+
+  if (loginUsernameInput.value.length < 5) {
+    loginUsernameInput.style.border = '1px solid #FF4500';
+    usernameValidateMsg.style.display = 'block';
+    usernameValidateMsg.textContent = 'Username must has at least 5 characters';
+  }
+
+  if (loginPasswordInput.value.length < 5) {
+    loginPasswordInput.style.border = '1px solid #FF4500';
+    passwordValidateMsg.style.display = 'block';
+    passwordValidateMsg.textContent = 'Password must has at least 5 characters';
+  }
+
+  if (loginUsernameInput.value.length > 50) {
+    loginUsernameInput.style.border = '1px solid #FF4500';
+    usernameValidateMsg.style.display = 'block';
+    usernameValidateMsg.textContent = 'Username must has at max 50 characters';
+  }
+
+  if (loginPasswordInput.value.length > 50) {
+    loginPasswordInput.style.border = '1px solid #FF4500';
+    passwordValidateMsg.style.display = 'block';
+    passwordValidateMsg.textContent = 'Password must has at max 50 characters';
+  }
+
+  loginUsernameInput.addEventListener('input', () => {
+    loginUsernameInput.style.borderColor = 'transparent';
+    usernameValidateMsg.style.display = 'none';
+  });
+
+  loginPasswordInput.addEventListener('input', () => {
+    loginPasswordInput.style.borderColor = 'transparent';
+    passwordValidateMsg.style.display = 'none';
+  });
+
+  if (loginUsernameInput.value.length >= 5
+    && loginUsernameInput.value.length < 50
+    && loginPasswordInput.value.length >= 5
+    && loginPasswordInput.value.length < 50) {
+    fetch('/api/v1/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: loginUsernameInput.value,
+        password: loginPasswordInput.value,
+      }),
     })
-    .catch((err) => {
-      console.log(err);
-      console.log('Login Error');
-    });
+      .then((res) => res.json())
+      .then((result) => {
+        loggedUserData = result.data.user;
+        const {
+          id, email, avatar, username, followers, signed_at,
+        } = result.data.user;
+        localStorage.setItem('logged-user', JSON.stringify({ id, email, avatar, username, followers, signed_at }));
+        localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+        window.location.href = '/';
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('Login Error');
+      });
+  }
 });
 // End Login Popup Section
 
@@ -409,8 +454,32 @@ const navigateToFormStep = (stepNumber) => {
 
 document.querySelectorAll('.btn-navigate-form-step').forEach((formNavigationBtn) => {
   formNavigationBtn.addEventListener('click', () => {
-    const stepNumber = parseInt(formNavigationBtn.getAttribute('step_number'), 10);
-    navigateToFormStep(stepNumber);
+    const signupEmailInput = document.querySelector('#signup-popup-page #email-input');
+    const emailValidateMsg = document.querySelector('.validate-message.email-validate');
+    const emailValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (!signupEmailInput.value.match(emailValidRegex)) {
+      emailValidateMsg.style.display = 'block';
+      emailValidateMsg.textContent = 'This filed must be an email';
+      signupEmailInput.style.border = '1px solid #FF4500';
+    }
+
+    if (signupEmailInput.value.length === 0) {
+      emailValidateMsg.style.display = 'block';
+      emailValidateMsg.textContent = 'Email must has a value';
+      signupEmailInput.style.border = '1px solid #FF4500';
+    }
+
+    signupEmailInput.addEventListener('input', () => {
+      signupEmailInput.style.borderColor = 'transparent';
+      emailValidateMsg.style.display = 'none';
+    });
+
+    if (signupEmailInput.value.length > 0
+      && signupEmailInput.value.match(emailValidRegex)) {
+      const stepNumber = parseInt(formNavigationBtn.getAttribute('step_number'), 10);
+      navigateToFormStep(stepNumber);
+    }
   });
 });
 
@@ -421,27 +490,66 @@ signupSubmitBtn.addEventListener('click', (e) => {
   const signupUsernameInput = document.querySelector('#signup-popup-page #username-input');
   const signupPasswordInput = document.querySelector('#signup-popup-page #password-input');
 
-  fetch('/api/v1/user/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: signupEmailInput.value,
-      username: signupUsernameInput.value,
-      password: signupPasswordInput.value,
-    }),
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      loggedUserData = result.data.user;
-      localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
-      window.location.href = '/';
+  const usernameValidateMsg = document.querySelector('.validate-message.signup-username-validate');
+  const passwordValidateMsg = document.querySelector('.validate-message.signup-password-validate');
+
+  if (signupUsernameInput.value.length < 5) {
+    signupUsernameInput.style.border = '1px solid #FF4500';
+    usernameValidateMsg.style.display = 'block';
+    usernameValidateMsg.textContent = 'Username must has at least 5 characters';
+  }
+
+  if (signupPasswordInput.value.length < 5) {
+    signupPasswordInput.style.border = '1px solid #FF4500';
+    passwordValidateMsg.style.display = 'block';
+    passwordValidateMsg.textContent = 'Password must has at least 5 characters';
+  }
+
+  if (signupUsernameInput.value.length > 50) {
+    signupUsernameInput.style.border = '1px solid #FF4500';
+    usernameValidateMsg.style.display = 'block';
+    usernameValidateMsg.textContent = 'Username must has at max 50 characters';
+  }
+
+  if (signupPasswordInput.value.length > 50) {
+    signupPasswordInput.style.border = '1px solid #FF4500';
+    passwordValidateMsg.style.display = 'block';
+    passwordValidateMsg.textContent = 'Password must has at max 50 characters';
+  }
+
+  signupUsernameInput.addEventListener('input', () => {
+    signupUsernameInput.style.borderColor = 'transparent';
+    usernameValidateMsg.style.display = 'none';
+  });
+
+  signupPasswordInput.addEventListener('input', () => {
+    signupPasswordInput.style.borderColor = 'transparent';
+    passwordValidateMsg.style.display = 'none';
+  });
+
+  if (signupUsernameInput.value.length >= 5
+    && signupUsernameInput.value.length < 50
+    && signupPasswordInput.value.length >= 5
+    && signupPasswordInput.value.length < 50) {
+    fetch('/api/v1/user/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: signupEmailInput.value,
+        username: signupUsernameInput.value,
+        password: signupPasswordInput.value,
+      }),
     })
-    .catch((err) => {
-      console.log(err);
-      console.log('signup Error');
-    });
+      .then((res) => res.json())
+      .then((result) => {
+        loggedUserData = result.data.user;
+        localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+        window.location.href = '/';
+      })
+      .catch(() => alert('signup Error'));
+  }
 });
 
 // End Sign Up Popup

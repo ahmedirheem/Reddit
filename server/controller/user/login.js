@@ -5,9 +5,9 @@ const {
 } = require('../../utils');
 
 const login = (req, res, next) => {
-  const { email, password } = req.body;
-  loginSchema.validateAsync({ email, password }, { abortEarly: false })
-    .then(() => getUserByEmailQuery(email))
+  const { username, password } = req.body;
+  loginSchema.validateAsync({ username, password }, { abortEarly: false })
+    .then(() => getUserByEmailQuery(username))
     .then(({ rows }) => {
       if (!rows.length) throw new CustomError('Invalid email or password', 400);
       return rows[0];
@@ -37,7 +37,7 @@ const login = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      next(err)
+      next(err);
     });
 };
 
