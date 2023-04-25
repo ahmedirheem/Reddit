@@ -7,7 +7,7 @@ const {
 const login = (req, res, next) => {
   const { email, password } = req.body;
   loginSchema.validateAsync({ email, password }, { abortEarly: false })
-    .then(() => getUserByEmailQuery({ email }))
+    .then(() => getUserByEmailQuery(email))
     .then(({ rows }) => {
       if (!rows.length) throw new CustomError('Invalid email or password', 400);
       return rows[0];

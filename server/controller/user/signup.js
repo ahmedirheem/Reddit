@@ -5,7 +5,7 @@ const { getUserByEmailQuery, signupQuery } = require('../../database');
 const signup = (req, res, next) => {
   const { email, password, username } = req.body;
   signupSchema.validateAsync({ email, password, username }, { abortEarly: false })
-    .then(() => getUserByEmailQuery({ email }))
+    .then(() => getUserByEmailQuery(email))
     .then(({ rows }) => {
       if (rows.length) throw new CustomError('This email is already used', 400);
     })

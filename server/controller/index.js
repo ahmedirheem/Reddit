@@ -10,9 +10,13 @@ const {
   addDisLike,
 } = require('./post');
 
-const { login, signup, logout } = require('./user');
+const {
+  login, signup, logout, userProfile,
+} = require('./user');
 
-const { homePage, loggedPage, createPostPage, profilePage } = require('./pages');
+const {
+  homePage, loggedPage, createPostPage, profilePage,
+} = require('./pages');
 
 module.exports = {
   clientError,
@@ -28,6 +32,7 @@ module.exports = {
   homePage,
   loggedPage,
   profilePage,
+  userProfile,
   createPostPage,
   addLike,
   addDisLike,

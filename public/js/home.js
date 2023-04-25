@@ -365,6 +365,7 @@ loginSubmitBtn.addEventListener('click', (e) => {
     .then((res) => res.json())
     .then((result) => {
       loggedUserData = result.data.user;
+      // const { id, email, avatar, username, followers, signed_at } = result.data.user;
       localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
       window.location.href = '/';
     })

@@ -1,7 +1,8 @@
 const { connection } = require('../../config');
 
-const getUserByEmailQuery = ({ email }) => {
+const getUserByEmailQuery = (email) => {
   const sql = {
+    // text: 'SELECT * FROM users WHERE email = $1',
     text: 'SELECT * FROM users WHERE email = $1 OR username = $1',
     values: [email],
   };
