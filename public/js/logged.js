@@ -51,7 +51,7 @@ const avatarImg = document.querySelector('.setting-btn .avatar img');
 avatarImg.setAttribute('src', loggedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
 
 // eslint-disable-next-line no-undef
-settingMenuData.forEach((item) => {
+settingLoggedMenuData.forEach((item) => {
   const menuItem = createHtmlElement('li', 'setting-item');
   menuItem.setAttribute('onclick', 'appearSettingMenu(this, 2)');
   const itemTitle = createHtmlElement('span', 'item-title', null, item.title);
@@ -75,4 +75,15 @@ settingMenuData.forEach((item) => {
     appendChildren(menuItem, itemIcon, itemTitle, itemMoreIcon);
     settingMenu.appendChild(menuItem);
   }
+});
+
+const logOutMenuBtn = settingMenu.lastElementChild;
+
+logOutMenuBtn.addEventListener('click', () => {
+  fetch('/api/v1/user/logout')
+    .then((data) => {
+      console.log('Logged Out Successfully!');
+      window.location.href = '/';
+    })
+    .catch(() => console.log('Logged Out Error!'));
 });

@@ -63,6 +63,33 @@ const settingMenuData = [
   },
 ];
 
+const settingLoggedMenuData = [
+  {
+    icon: 'fa-regular fa-circle-question',
+    title: 'Help Center',
+  },
+  {
+    icon: 'fa-solid fa-circle-info',
+    title: 'More',
+    moreIcon: 'fa-solid fa-angle-down',
+    menu: ['Reddit iOS', 'Reddit Android', 'Rereddit', 'Best Communities', 'Communities', 'About Reddit', 'Blog', 'Careers', 'Press'],
+  },
+  {
+    icon: 'fa-regular fa-rectangle-list',
+    title: 'Terms & Policies',
+    moreIcon: 'fa-solid fa-angle-down',
+    menu: ['User Agreement', 'Privacy Policy', 'Content Policy', 'Moderator Code of Conduct'],
+  },
+  {
+    icon: 'fa-solid fa-volume-high',
+    title: 'Advertise on Reddit',
+  },
+  {
+    icon: 'fa-solid fa-arrow-right-from-bracket',
+    title: 'Log Out',
+  },
+];
+
 const rightSideMenuData = [
   {
     title: 'POPULAR COMMUNITIES',
