@@ -35,11 +35,12 @@ li {
 }
 
 /* Start Logged Header */
-.logged-header .right{
+.logged-header .right {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
+
 .logged-header .right .option-icon {
   width: 32px;
   height: 32px;
@@ -169,7 +170,12 @@ li {
   font-size: 15px;
 }
 
-.logged-header .right .setting-menu{
+.logged-header .right .setting-menu {
   top: 49px
 }
+
 /* End Logged Header */
+
+section.body{
+  margin: auto;
+}

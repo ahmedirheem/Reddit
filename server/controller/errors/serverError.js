@@ -4,7 +4,7 @@ const { ValidationError } = require('joi');
 const { CustomError } = require('../../utils');
 
 // eslint-disable-next-line consistent-return
-const serverError = (err, req, res) => {
+const serverError = (err, req, res, next) => {
   if (err instanceof ValidationError) {
     return res.status(400).json({
       error: true,

@@ -78,12 +78,9 @@ const showSignupPage = () => {
   logInPopup.style.display = 'none';
 };
 
-// document.addEventListener('click', (e) => {
-//   if(e.target.className !== settingMenu.className || e.target.className !== settingBtn.className || e.target.className !== settingBtn.querySelector('i').className){
-//     console.log('WORK');
-//     settingMenu.classList.remove('active')
-//   }
-// })
+document.querySelector('section.body').addEventListener('click', () => {
+  settingMenu.classList.remove('active');
+});
 
 // End Global Functions
 
@@ -405,20 +402,28 @@ loginSubmitBtn.addEventListener('click', (e) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        loggedUserData = result.data.user;
-        const {
-          id, email, avatar, username, followers, signed_at,
-        } = result.data.user;
-        localStorage.setItem('logged-user', JSON.stringify({
-          id, email, avatar, username, followers, signed_at
-        }));
-        // localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
-        window.location.href = '/';
+        if (result.error) {
+          loginUsernameInput.style.border = '1px solid #FF4500';
+          usernameValidateMsg.style.display = 'block';
+          usernameValidateMsg.textContent = result.data.message;
+
+          loginPasswordInput.style.border = '1px solid #FF4500';
+          passwordValidateMsg.style.display = 'block';
+          passwordValidateMsg.textContent = result.data.message;
+          console.log(result);
+        } else {
+          loggedUserData = result.data.user;
+          console.log(result);
+          const {
+            id, email, avatar, username, followers, signed_at,
+          } = result.data.user;
+          localStorage.setItem('logged-user', JSON.stringify({
+            id, email, avatar, username, followers, signed_at
+          }));
+          window.location.href = '/';
+        }
       })
-      .catch((err) => {
-        console.log(err);
-        console.log('Login Error');
-      });
+      .catch(() => alert('Login Error'));
   }
 });
 // End Login Popup Section
@@ -546,16 +551,24 @@ signupSubmitBtn.addEventListener('click', (e) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        loggedUserData = result.data.user;
-        const {
-          id, email, avatar, username, followers, signed_at,
-        } = result.data.user;
-        localStorage.setItem('logged-user', JSON.stringify({
-          id, email, avatar, username, followers, signed_at,
-        }));
-        // localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
-        window.location.href = '/';
+        if (result.error) {
+          signupUsernameInput.style.border = '1px solid #FF4500';
+          usernameValidateMsg.style.display = 'block';
+          usernameValidateMsg.textContent = result.data.message;
+
+          signupPasswordInput.style.border = '1px solid #FF4500';
+          passwordValidateMsg.style.display = 'block';
+          passwordValidateMsg.textContent = result.data.message;
+        } else {
+          loggedUserData = result.data.user;
+          const {
+            id, email, avatar, username, followers, signed_at,
+          } = result.data.user;
+          localStorage.setItem('logged-user', JSON.stringify({
+            id, email, avatar, username, followers, signed_at,
+          }));
+          window.location.href = '/';
+        }
       })
       .catch(() => alert('signup Error'));
   }

@@ -77,13 +77,24 @@ settingLoggedMenuData.forEach((item) => {
   }
 });
 
+document.querySelector('section.body').addEventListener('click', () => {
+  settingMenu.classList.remove('active');
+});
+
 const logOutMenuBtn = settingMenu.lastElementChild;
 
 logOutMenuBtn.addEventListener('click', () => {
   fetch('/api/v1/user/logout')
-    .then((data) => {
-      console.log('Logged Out Successfully!');
+    .then(() => {
       window.location.href = '/';
     })
     .catch(() => console.log('Logged Out Error!'));
 });
+
+// const goToCreatePostBtns = document.querySelectorAll('.go-to-create-post-btn');
+
+// goToCreatePostBtns.forEach((button) => {
+//   button.addEventListener(('click', () => {
+//     fetch('/')
+//   }));
+// });

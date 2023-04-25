@@ -9,12 +9,15 @@ const {
 } = require('../controller');
 
 const { addLike, addDisLike } = require('../controller');
+const { checkAuth } = require('../middleware');
 // const { isLogged } = require('../middleware');
 
 const postRouter = express.Router();
 
 postRouter.get('/', getAllPosts);
 postRouter.post('/user-posts', getUserPosts);
+
+postRouter.use(checkAuth);
 postRouter.post('/submit', addPost);
 postRouter.delete('/delete', deletePost);
 postRouter.put('/update', updatePost);

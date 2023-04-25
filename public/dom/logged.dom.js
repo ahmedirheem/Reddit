@@ -22,6 +22,9 @@ const appendChildren1 = (parent, ...children) => {
   });
 };
 
+const dropMenu = (element) => {
+  element.classList.toggle('dropped');
+};
 // eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
   console.log(data);
@@ -35,6 +38,11 @@ const createPostElement = (data) => {
   const downIcon = createHtmlElement1('i', 'fa-regular fa-circle-down', 'dislike-icon');
 
   upIcon.addEventListener('click', () => {
+    upIcon.classList.toggle('active');
+    downIcon.classList.remove('active');
+    upIcon.style.pointerEvents = 'none';
+    downIcon.style.pointerEvents = 'all';
+
     fetch('/api/v1/post/like', {
       method: 'POST',
       headers: {
@@ -46,13 +54,16 @@ const createPostElement = (data) => {
       .then((result) => {
         likesNum = result.data.post.likes - result.data.post.dislikes;
         likesCount.textContent = likesNum;
-        upIcon.style.color = '#cc3700';
-        downIcon.style.color = '#878a8c';
       })
       .catch(() => console.log('Like Error'));
   });
 
   downIcon.addEventListener('click', () => {
+    downIcon.classList.toggle('active');
+    upIcon.classList.remove('active');
+    downIcon.style.pointerEvents = 'none';
+    upIcon.style.pointerEvents = 'all';
+
     fetch('/api/v1/post/dislike', {
       method: 'POST',
       headers: {
@@ -64,9 +75,6 @@ const createPostElement = (data) => {
       .then((result) => {
         likesNum = result.data.post.likes - result.data.post.dislikes;
         likesCount.textContent = likesNum;
-        downIcon.style.color = '#5a75cc';
-        downIcon.style.pointerEvent = 'none';
-        upIcon.style.color = '#878a8c';
       })
       .catch((err) => {
         console.log(err);

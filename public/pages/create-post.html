@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit to Reddit</title>
 
-  <link rel="stylesheet" href="../css/create-post.css">
   <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/create-post.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -138,93 +138,95 @@
   </nav>
   <!-- End Sidebar Section -->
 
-  <div class="create-post-container">
-    <div class="create-head">
-      <h1>Create a post</h1>
-      <button>
-        DRAFTS
-        <span class="drafts-num">0</span>
-      </button>
+  <section class="body">
+    <div class="create-post-container">
+      <div class="create-head">
+        <h1>Create a post</h1>
+        <button>
+          DRAFTS
+          <span class="drafts-num">0</span>
+        </button>
+      </div>
+      <div class="choose-community">
+        <img src="../assets//circle-regular.svg" alt="">
+        <select name="community" id="community-select">
+          <option value="r/programming">Choose a community</option>
+        </select>
+      </div>
+  
+      <section class="post-section">
+        <div class="post-types">
+          <div class="type active" id="post-type-btn">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <span>Post</span>
+          </div>
+          <div class="type" id="image-type-btn">
+            <i class="fa-regular fa-image"></i>
+            <span>Images & Video</span>
+          </div>
+          <div class="type" id="link-type-btn">
+            <i class="fa-solid fa-link"></i>
+            <span>Link</span>
+          </div>
+          <div class="type" id="poll-type-btn" style="cursor: not-allowed; pointer-events:none;">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            <span>Poll</span>
+          </div>
+        </div>
+        <div class="post-content">
+          <div class="title-input">
+            <input type="text" placeholder="Title">
+            <span class="characters-limit">
+              <span class="used-characters">0</span>/300</span>
+          </div>
+  
+          <section class="post-type-input" id="post-type-section">
+            <textarea id="post-text-input" cols="30" rows="10"></textarea>
+  
+            <div class="submit-btns">
+              <button class="save-draft-btn">Save Draft</button>
+              <button class="post-btn">Post</button>
+            </div>
+          </section>
+          <section class="images-type-input" id="image-type-section">
+            <div class="images-input">
+              <label>Choose Images</label>
+              <input type="file" id="choose-img-btn"/>
+            </div>
+            <div class="submit-btns">
+              <button class="cancel-btn">Cancel</button>
+              <button class="post-btn">Post</button>
+            </div>
+          </section>
+          <section class="link-type-input" id="link-type-section">
+            <div class="url-input">
+              <textarea placeholder="Url" cols="30" rows="10"></textarea>
+            </div>
+            <div class="submit-btns">
+              <button class="save-draft-btn">Save Draft</button>
+              <button class="post-btn">Post</button>
+            </div>
+          </section>
+        </div>
+  
+        <div class="post-footer">
+          <div class="notification">
+            <input type="checkbox" name="reply-notification" id="reply-notification" checked>
+            <label>Send me reply notifications</label>
+          </div>
+          <div class="connect-link">
+            <a href="#">Connect accounts to share your post</a>
+            <i class="ri-information-line"></i>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="choose-community">
-      <img src="../assets//circle-regular.svg" alt="">
-      <select name="community" id="community-select">
-        <option value="r/programming">Choose a community</option>
-      </select>
-    </div>
-
-    <section class="post-section">
-      <div class="post-types">
-        <div class="type active" id="post-type-btn">
-          <i class="fa-solid fa-clipboard-list"></i>
-          <span>Post</span>
-        </div>
-        <div class="type" id="image-type-btn">
-          <i class="fa-regular fa-image"></i>
-          <span>Images & Video</span>
-        </div>
-        <div class="type" id="link-type-btn">
-          <i class="fa-solid fa-link"></i>
-          <span>Link</span>
-        </div>
-        <div class="type" id="poll-type-btn" style="cursor: not-allowed; pointer-events:none;">
-          <i class="fa-solid fa-square-poll-vertical"></i>
-          <span>Poll</span>
-        </div>
-      </div>
-      <div class="post-content">
-        <div class="title-input">
-          <input type="text" placeholder="Title">
-          <span class="characters-limit">
-            <span class="used-characters">0</span>/300</span>
-        </div>
-
-        <section class="post-type-input" id="post-type-section">
-          <textarea id="post-text-input" cols="30" rows="10"></textarea>
-
-          <div class="submit-btns">
-            <button class="save-draft-btn">Save Draft</button>
-            <button class="post-btn">Post</button>
-          </div>
-        </section>
-        <section class="images-type-input" id="image-type-section">
-          <div class="images-input">
-            <label>Choose Images</label>
-            <input type="file" id="choose-img-btn"/>
-          </div>
-          <div class="submit-btns">
-            <button class="cancel-btn">Cancel</button>
-            <button class="post-btn">Post</button>
-          </div>
-        </section>
-        <section class="link-type-input" id="link-type-section">
-          <div class="url-input">
-            <textarea placeholder="Url" cols="30" rows="10"></textarea>
-          </div>
-          <div class="submit-btns">
-            <button class="save-draft-btn">Save Draft</button>
-            <button class="post-btn">Post</button>
-          </div>
-        </section>
-      </div>
-
-      <div class="post-footer">
-        <div class="notification">
-          <input type="checkbox" name="reply-notification" id="reply-notification" checked>
-          <label>Send me reply notifications</label>
-        </div>
-        <div class="connect-link">
-          <a href="#">Connect accounts to share your post</a>
-          <i class="ri-information-line"></i>
-        </div>
-      </div>
-    </section>
-  </div>
+  </section>
 
   <script src="../data/sidebar.js"></script>
-  <script src="../dom/create-post.dom.js"></script>
-  <script src="../dom/home.js"></script>
   <script src="../dom/logged.dom.js"></script>
+  <script src="../js/logged.js"></script>
+  <script src="../dom/create-post.dom.js"></script>
   <script src="../js/create-post.js"></script>
 </body>
 

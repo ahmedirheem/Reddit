@@ -296,7 +296,6 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* display: none; */
 }
 
 nav div {
@@ -400,7 +399,7 @@ section.body {
   padding: 66px 10%;
   width: 100%;
   max-width: 990px;
-  margin-left: 300px;
+  margin-left: 200px;
 }
 
 @media (min-width: 1250px) {
@@ -751,6 +750,7 @@ section.body {
   font-weight: 400;
   padding: 4px;
   border-radius: 2px;
+  pointer-events: all;
 }
 
 .post .left-side i:hover {
@@ -764,9 +764,21 @@ section.body {
 .post .left-side i:last-of-type:hover {
   color: #5a75cc;
 }
+
+.post .left-side #like-icon.active {
+  color: #cc3700;
+  pointer-events: none;
+}
+
+.post .left-side #dislike-icon.active {
+  color: #5a75cc;
+  pointer-events: none;
+}
+
 .post .right-side {
   flex: 1;
 }
+
 .post .post-head {
   padding: 8px;
   font-family: var(--main-font);
@@ -1188,7 +1200,7 @@ section.body {
 .log-in-popup {
   max-width: 400px !important;
   height: 640px !important;
-  border-radius: 14px !important; 
+  border-radius: 14px !important;
 }
 
 .log-in-popup .close-icon,
@@ -1403,7 +1415,7 @@ section.body {
   transform: translateY(0);
 }
 
-.log-in-popup .validate-message{
+.log-in-popup .validate-message {
   font-family: var(--main-font);
   font-size: 14px;
   color: var(--orange-color);
@@ -1477,7 +1489,8 @@ section.body {
 
 #login-popup-page,
 #signup-popup-page,
-#getapp-popup-page{
+#getapp-popup-page {
   z-index: 88888888888888 !important;
 }
+
 /* End Log In & Sign Up Popup */
