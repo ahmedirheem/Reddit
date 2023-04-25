@@ -409,8 +409,10 @@ loginSubmitBtn.addEventListener('click', (e) => {
         const {
           id, email, avatar, username, followers, signed_at,
         } = result.data.user;
-        localStorage.setItem('logged-user', JSON.stringify({ id, email, avatar, username, followers, signed_at }));
-        localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+        localStorage.setItem('logged-user', JSON.stringify({
+          id, email, avatar, username, followers, signed_at
+        }));
+        // localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
         window.location.href = '/';
       })
       .catch((err) => {
@@ -544,8 +546,15 @@ signupSubmitBtn.addEventListener('click', (e) => {
     })
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         loggedUserData = result.data.user;
-        localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
+        const {
+          id, email, avatar, username, followers, signed_at,
+        } = result.data.user;
+        localStorage.setItem('logged-user', JSON.stringify({
+          id, email, avatar, username, followers, signed_at,
+        }));
+        // localStorage.setItem('logged-user', JSON.stringify(loggedUserData));
         window.location.href = '/';
       })
       .catch(() => alert('signup Error'));

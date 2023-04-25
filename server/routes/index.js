@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.get('/', isLogged, homePage);
 router.get('/profile/:username', userProfile);
-router.get('/:username', checkAuth, profilePage);
-router.get('/submit', checkAuth, createPostPage);
+router.get('/:username', profilePage);
+router.get('/submit', createPostPage);
 router.use('/api/v1/post', postRouter);
 router.use('/api/v1/user', userRouter);
 
