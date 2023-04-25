@@ -22,7 +22,7 @@ const linkTypeSection = document.getElementById('link-type-section');
 
 const signedUser = JSON.parse(localStorage.getItem('logged-user'));
 
-postTypeBtn.addEventListener('click', (e) => {
+postTypeBtn.addEventListener('click', () => {
   imageTypeBtn.classList.remove('active');
   linkTypeBtn.classList.remove('active');
   postTypeBtn.classList.add('active');
@@ -65,8 +65,7 @@ postTextBtn.addEventListener('click', () => {
       posterId: +signedUser.id,
     }),
   })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then(window.location.href = '/')
     .catch(() => console.log('Create Post Error'));
   console.log('done');
 });

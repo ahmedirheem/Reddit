@@ -128,12 +128,15 @@ const createPostElement = (data) => {
 
   const postCaption = createHtmlElement('div', 'post-caption');
 
+  const titleText = createHtmlElement('h3', 'caption-text', null, data.title);
+  titleText.style.display = 'block';
+
   const captionText = createHtmlElement('h3', 'caption-text', null, data.caption);
   const category = createHtmlElement('a', 'category', null, data.content?.category);
   category.setAttribute('href', '#');
   category.style.background = '#ff4500';
 
-  appendChildren(postCaption, captionText, category);
+  appendChildren(postCaption, titleText, captionText, category);
 
   const postMedia = createHtmlElement('div', 'post-media');
 

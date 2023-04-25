@@ -5,7 +5,6 @@ const addLike = (req, res, next) => {
 
   getPostByIdQuery({ id })
     .then(({ rows }) => {
-      console.log(rows);
       const newLikes = rows[0].likes + 1;
       return newLikes;
     })

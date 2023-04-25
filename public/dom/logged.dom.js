@@ -24,7 +24,7 @@ const appendChildren1 = (parent, ...children) => {
 
 // eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
-  // console.log(data);
+  console.log(data);
   const post = createHtmlElement1('div', 'post', 'post');
 
   const leftSide = createHtmlElement1('div', 'left-side');
@@ -70,7 +70,8 @@ const createPostElement = (data) => {
       })
       .catch((err) => {
         console.log(err);
-        console.log('Dislike Error')});
+        console.log('Dislike Error');
+      });
   });
 
   appendChildren1(leftSide, upIcon, likesCount, downIcon);
@@ -80,26 +81,26 @@ const createPostElement = (data) => {
   const postHead = createHtmlElement1('div', 'post-head');
 
   const avatar = createHtmlElement1('img', 'avatar');
-  avatar.src = data.userAvatar;
-  const groupLink = createHtmlElement1('a', 'group-link', null, data.groupName);
+  avatar.src = data.avatar;
+  const groupLink = createHtmlElement1('a', 'group-link', null, data.name);
   const dotItem = createHtmlElement1('span', 'dot-item', null, '•');
   const postedBy = createHtmlElement1('span', 'posted-by', null, 'Posted by');
-  const userName = createHtmlElement1('a', 'username', null, data.userName);
-  userName.setAttribute('href', '#');
+  const userName = createHtmlElement1('a', 'username', null, data.username);
+  userName.setAttribute('href', `/user/${data.username}`);
   postedBy.appendChild(userName);
-  const postedAt = createHtmlElement1('span', 'posted-at', null, data.time);
-  const joinBtn = createHtmlElement1('button', 'join-btn', 'post-join-btn', 'join');
+  const postedAt = createHtmlElement1('span', 'posted-at', null, data.posted_at);
 
-  appendChildren1(postHead, avatar, groupLink, dotItem, postedBy, postedAt, joinBtn);
+  appendChildren1(postHead, avatar, groupLink, dotItem, postedBy, postedAt);
 
   const postCaption = createHtmlElement1('div', 'post-caption');
-
+  const titleText = createHtmlElement1('h3', 'caption-text', null, data.title);
+  titleText.style.display = 'block';
   const captionText = createHtmlElement1('h3', 'caption-text', null, data.caption);
   const category = createHtmlElement1('a', 'category', null, data.content?.category);
   category.setAttribute('href', '#');
   category.style.background = '#ff4500';
 
-  appendChildren1(postCaption, captionText, category);
+  appendChildren1(postCaption, titleText, captionText, category);
 
   const postMedia = createHtmlElement1('div', 'post-media');
 

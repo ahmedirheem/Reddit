@@ -133,8 +133,8 @@ li {
   border: 2px solid var(--white-color);
   background-color: #46d160;
   position: absolute;
-  bottom: -1px solid #edeff1;
-  right: -1px solid #edeff1;
+  bottom: -2px;
+  right: -2px;
 }
 
 .logged-header .right .setting-btn .user .username {
@@ -234,7 +234,7 @@ li {
   background-color: var(--icon-gray-color);
   border-radius: 2px;
   margin-left: 4px;
-  padding: 1px solid #edeff1 3px;
+  padding: 1px 3px;
 }
 
 .choose-community {
