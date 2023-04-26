@@ -3,7 +3,7 @@ const { connection } = require('../../config');
 const getUserPostsQuery = (posterId) => {
   const sql = {
     text: `
-      SELECT p.*, c.id AS com_id, c.name, c.avatar, c.description, c.members, u.id As user_id, u.username, u.avatar, u.email, u.followers 
+      SELECT p.*, c.id AS com_id, c.name AS com_name, c.avatar AS com_avatar, c.description, c.members, u.id As user_id, u.username, u.avatar AS user_avatar, u.email, u.followers 
         FROM posts p
       LEFT JOIN users u
         ON p.poster_id = u.id

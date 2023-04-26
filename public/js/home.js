@@ -111,24 +111,24 @@ const createPostElement = (data) => {
   const postHead = createHtmlElement('div', 'post-head');
 
   const avatar = createHtmlElement('img', 'avatar');
-  avatar.src = data.userAvatar;
-  const groupLink = createHtmlElement('a', 'group-link', null, data.groupName);
+  avatar.src = data.com_avatar;
+  const groupLink = createHtmlElement('a', 'group-link', null, data.com_name);
   const dotItem = createHtmlElement('span', 'dot-item', null, '•');
   const postedBy = createHtmlElement('span', 'posted-by', null, 'Posted by');
-  const userName = createHtmlElement('a', 'username', null, data.userName);
+  const userName = createHtmlElement('a', 'username', null, data.username);
   userName.setAttribute('href', '#');
   postedBy.appendChild(userName);
-  const postedAt = createHtmlElement('span', 'posted-at', null, data.time);
+  const postedAt = createHtmlElement('span', 'posted-at', null, data.posted_at);
   const joinBtn = createHtmlElement('button', 'join-btn', 'post-join-btn', 'join');
   joinBtn.setAttribute('onclick', 'showSignupPage()');
   appendChildren(postHead, avatar, groupLink, dotItem, postedBy, postedAt, joinBtn);
 
   const postCaption = createHtmlElement('div', 'post-caption');
 
-  const titleText = createHtmlElement('h3', 'caption-text', null, data.title);
+  const titleText = createHtmlElement('h3', 'title-text', null, data.title);
   titleText.style.display = 'block';
 
-  const captionText = createHtmlElement('h3', 'caption-text', null, data.caption);
+  const captionText = createHtmlElement('span', 'caption-text', null, data.caption);
   const category = createHtmlElement('a', 'category', null, data.content?.category);
   category.setAttribute('href', '#');
   category.style.background = '#ff4500';
@@ -141,11 +141,12 @@ const createPostElement = (data) => {
     const postImage = createHtmlElement('img', 'post-image');
     postImage.src = data.images;
     postMedia.appendChild(postImage);
-  } else {
-    const postVideo = createHtmlElement('img', 'post-video');
-    postVideo.src = data.video;
-    postMedia.appendChild(postVideo);
   }
+  // else {
+  // const postVideo = createHtmlElement('img', 'post-video');
+  // postVideo.src = data.video;
+  // postMedia.appendChild(postVideo);
+  // }
 
   const postSocial = createHtmlElement('div', 'post-social');
 

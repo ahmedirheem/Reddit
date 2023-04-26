@@ -45,10 +45,10 @@ window.onload = () => {
 
 const usernameCreateForLogged = document.querySelector('.setting-btn .username');
 // eslint-disable-next-line no-undef
-usernameCreateForLogged.textContent = loggedUser.username;
+usernameCreateForLogged.textContent = loggedUser?.username;
 const avatarImgCreate = document.querySelector('.setting-btn .avatar img');
 // eslint-disable-next-line no-undef
-avatarImgCreate.setAttribute('src', loggedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
+avatarImgCreate.setAttribute('src', loggedUser?.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
 
 // eslint-disable-next-line no-undef
 settingLoggedMenuData.forEach((item) => {
@@ -85,7 +85,7 @@ const profileMenuBtn = settingMenu.firstElementChild;
 
 profileMenuBtn.addEventListener('click', () => {
   // eslint-disable-next-line no-undef
-  window.location.href = `/${loggedUser.username}`;
+  window.location.href = `/${loggedUser?.username}`;
 });
 
 const logOutMenuBtn = settingMenu.lastElementChild;

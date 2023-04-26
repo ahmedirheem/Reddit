@@ -849,7 +849,7 @@ section.body {
   margin: 0 0.5rem;
 }
 
-.post .post-caption h3 {
+.post .post-caption .title-text {
   font-size: 18px;
   font-family: var(--main-font);
   word-break: break-all;
@@ -858,6 +858,18 @@ section.body {
   line-height: 22px;
   font-weight: 500;
   color: #222;
+}
+
+.post .post-caption .caption-text {
+  font-size: 14px;
+  font-family: var(--secondary-font);
+  word-break: break-all;
+  vertical-align: baseline;
+  display: inline;
+  line-height: 22px;
+  font-weight: 400;
+  color: var(--text-gray-color);
+  padding-right: 1rem;
 }
 
 .post .post-caption a {

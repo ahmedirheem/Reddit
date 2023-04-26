@@ -84,9 +84,9 @@ logOutMenuBtn.addEventListener('click', () => {
 let userProfile;
 
 const usernameForLogged = document.querySelector('.setting-btn .username');
-usernameForLogged.textContent = signedUser.username;
+usernameForLogged.textContent = signedUser?.username;
 const avatarImg = document.querySelector('.setting-btn .avatar img');
-avatarImg.setAttribute('src', signedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
+avatarImg.setAttribute('src', signedUser?.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
 
 function getPosterId(userId) {
   fetch('/api/v1/post/user-posts', {
