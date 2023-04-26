@@ -37,7 +37,6 @@ window.onload = () => {
   fetch('/api/v1/post')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       // eslint-disable-next-line no-undef
       data.data.posts.forEach((post) => createPostElement(post));
     })
@@ -82,6 +81,13 @@ document.querySelector('section.body').addEventListener('click', () => {
   settingMenu.classList.remove('active');
 });
 
+const profileMenuBtn = settingMenu.firstElementChild;
+
+profileMenuBtn.addEventListener('click', () => {
+  // eslint-disable-next-line no-undef
+  window.location.href = `/${loggedUser.username}`;
+});
+
 const logOutMenuBtn = settingMenu.lastElementChild;
 
 logOutMenuBtn.addEventListener('click', () => {
@@ -92,15 +98,3 @@ logOutMenuBtn.addEventListener('click', () => {
     })
     .catch(() => console.log('Logged Out Error!'));
 });
-
-// const goToCreatePostBtns = document.querySelectorAll('.go-to-create-post-btn');
-
-// goToCreatePostBtns.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     fetch('/submit')
-//       .then(() => {
-//         window.location.href = '/submit';
-//       })
-//       .catch((err) => console.log(err));
-//   });
-// });

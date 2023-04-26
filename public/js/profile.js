@@ -108,8 +108,8 @@ fetch(`/profile/${usernameId}`)
   .then((user) => {
     userProfile = user?.data?.user;
     getPosterId(userProfile?.id);
-    userAvatarPlace.setAttribute('src', user?.data?.user?.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
-    userNamePlace.textContent = user?.data?.user?.username;
-    document.title = user?.data?.user?.username;
+    userAvatarPlace.setAttribute('src', userProfile?.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
+    userNamePlace.textContent = userProfile?.username;
+    document.title = userProfile?.username;
   })
   .catch((err) => console.log(err));

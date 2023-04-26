@@ -29,7 +29,6 @@ const dropMenu = (element) => {
 };
 // eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
-  console.log(data);
   const post = createHtmlElement1('div', 'post', 'post');
 
   const leftSide = createHtmlElement1('div', 'left-side');
@@ -175,7 +174,6 @@ const createPostElement = (data) => {
 
   appendChildren1(menuItem3, menuItemIcon3, menuItemTitle3);
 
-  console.log(data.id, 'Post Id');
   if (loggedUser.id === data.poster_id) {
     const deletePost = createHtmlElement1('li');
     const deletePostIcon = createHtmlElement1('i', 'ri-delete-bin-7-line');

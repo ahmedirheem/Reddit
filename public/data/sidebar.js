@@ -65,6 +65,10 @@ const settingMenuData = [
 
 const settingLoggedMenuData = [
   {
+    icon: 'fa-regular fa-user',
+    title: 'Profile',
+  },
+  {
     icon: 'fa-regular fa-circle-question',
     title: 'Help Center',
   },
