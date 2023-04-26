@@ -118,11 +118,12 @@ const createPostElement = (data) => {
     const postImage = createHtmlElement1('img', 'post-image');
     postImage.src = data.images;
     postMedia.appendChild(postImage);
-  } else {
-    const postVideo = createHtmlElement1('img', 'post-video');
-    postVideo.src = data.video;
-    postMedia.appendChild(postVideo);
   }
+  // else {
+  //   const postVideo = createHtmlElement1('img', 'post-video');
+  //   postVideo.src = data.video;
+  //   postMedia.appendChild(postVideo);
+  // }
 
   const postSocial = createHtmlElement1('div', 'post-social');
 

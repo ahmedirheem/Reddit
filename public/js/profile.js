@@ -70,6 +70,13 @@ settingLoggedMenuData.forEach((item) => {
   }
 });
 
+const profileMenuBtn = settingMenu.firstElementChild;
+
+profileMenuBtn.addEventListener('click', () => {
+  // eslint-disable-next-line no-undef
+  window.location.href = `/${loggedUser?.username}`;
+});
+
 const logOutMenuBtn = settingMenu.lastElementChild;
 
 logOutMenuBtn.addEventListener('click', () => {
