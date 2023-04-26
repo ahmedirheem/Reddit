@@ -19,7 +19,7 @@ postRouter.post('/user-posts', getUserPosts);
 
 postRouter.use(checkAuth);
 postRouter.post('/submit', addPost);
-postRouter.delete('/delete', deletePost);
+postRouter.post('/delete', deletePost);
 postRouter.put('/update', updatePost);
 postRouter.post('/like', addLike);
 postRouter.post('/dislike', addDisLike);

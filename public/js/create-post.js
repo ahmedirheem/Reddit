@@ -67,7 +67,7 @@ postTextBtn.addEventListener('click', () => {
     body: JSON.stringify({
       title: titleInput.value,
       caption: postTextInput.value,
-      posterId: +signedUser.id,
+      posterId: +loggedCreateUser.id,
     }),
   })
     .then(window.location.href = '/')

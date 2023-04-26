@@ -37,6 +37,7 @@ window.onload = () => {
   fetch('/api/v1/post')
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       // eslint-disable-next-line no-undef
       data.data.posts.forEach((post) => createPostElement(post));
     })
@@ -86,6 +87,7 @@ const logOutMenuBtn = settingMenu.lastElementChild;
 logOutMenuBtn.addEventListener('click', () => {
   fetch('/api/v1/user/logout')
     .then(() => {
+      localStorage.clear();
       window.location.href = '/';
     })
     .catch(() => console.log('Logged Out Error!'));

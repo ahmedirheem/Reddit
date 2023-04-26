@@ -331,7 +331,6 @@ const closeLogInPopupBtn = document.querySelector('#login-popup-page .close-icon
 const loginSubmitBtn = document.getElementById('login-submit-btn');
 const loginBtns = [logInHeaderBtn, logInMenuBtn, logInSignUpBtn];
 
-let loggedUserData;
 loginBtns.forEach((button) => {
   button.addEventListener('click', () => {
     showLoginPage();
@@ -412,11 +411,10 @@ loginSubmitBtn.addEventListener('click', (e) => {
           passwordValidateMsg.textContent = result.data.message;
           console.log(result);
         } else {
-          loggedUserData = result.data.user;
-          console.log(result);
           const {
             id, email, avatar, username, followers, signed_at,
           } = result.data.user;
+
           localStorage.setItem('logged-user', JSON.stringify({
             id, email, avatar, username, followers, signed_at
           }));

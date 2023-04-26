@@ -175,10 +175,11 @@ const createPostElement = (data) => {
 
   appendChildren1(menuItem3, menuItemIcon3, menuItemTitle3);
 
-  if (loggedUser.id === data.id) {
+  console.log(data.id, 'Post Id');
+  if (loggedUser.id === data.poster_id) {
     const deletePost = createHtmlElement1('li');
     const deletePostIcon = createHtmlElement1('i', 'ri-delete-bin-7-line');
-    const deletePostTitle = createHtmlElement1('span', 'item-title', null, 'Report');
+    const deletePostTitle = createHtmlElement1('span', 'item-title', null, 'Delete');
     appendChildren1(deletePost, deletePostIcon, deletePostTitle);
 
     deletePost.addEventListener('click', () => {
@@ -187,16 +188,18 @@ const createPostElement = (data) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id: data.id}),
+        body: JSON.stringify({ id: data.id }),
       })
-        .then((res) => res.json())
-        .then((result) => console.log(result))
+        // .then((res) => res.json())
+        .then(() => {
+          window.location.href = window.location.href.split('/').pop();
+        })
         .catch((err) => console.log(err));
     });
 
     const updatePost = createHtmlElement1('li');
     const updatePostIcon = createHtmlElement1('i', 'ri-pencil-line');
-    const updatePostTitle = createHtmlElement1('span', 'item-title', null, 'Report');
+    const updatePostTitle = createHtmlElement1('span', 'item-title', null, 'Edit Post');
     appendChildren1(updatePost, updatePostIcon, updatePostTitle);
 
     // updatePost.addEventListener('click', () => {

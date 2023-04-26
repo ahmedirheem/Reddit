@@ -3,12 +3,12 @@ const { connection } = require('../../config');
 const getAllPostsQuery = () => {
   const sql = {
     text: `
-      SELECT posts.*, communities.*, users.username, users.avatar, users.email, users.followers 
-      FROM posts 
-      INNER JOIN users 
-        ON posts.poster_id = users.id
-      INNER JOIN communities
-        ON posts.community_id = communities.id`,
+      SELECT p.*, u.username, u.avatar, u.email, u.followers, c.id AS com_id, c.name, c.avatar, c.description, c.members
+      FROM posts p
+      LEFT JOIN users u
+        ON p.poster_id = u.id
+      LEFT JOIN communities c
+        ON p.community_id = c.id`,
   };
   return connection.query(sql);
 };
