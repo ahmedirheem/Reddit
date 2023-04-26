@@ -1,5 +1,7 @@
 const postsContainer = document.querySelector('.posts-container');
 
+const loggedUser = JSON.parse(localStorage.getItem('logged-user'));
+
 const createHtmlElement1 = (element, className, id, textContent) => {
   const ele = document.createElement(element);
 
@@ -173,7 +175,47 @@ const createPostElement = (data) => {
 
   appendChildren1(menuItem3, menuItemIcon3, menuItemTitle3);
 
-  appendChildren1(moreMenu, menuItem1, menuItem2, menuItem3);
+  if (loggedUser.id === data.id) {
+    const deletePost = createHtmlElement1('li');
+    const deletePostIcon = createHtmlElement1('i', 'ri-delete-bin-7-line');
+    const deletePostTitle = createHtmlElement1('span', 'item-title', null, 'Report');
+    appendChildren1(deletePost, deletePostIcon, deletePostTitle);
+
+    deletePost.addEventListener('click', () => {
+      fetch('/api/v1/post/delete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: data.id}),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err));
+    });
+
+    const updatePost = createHtmlElement1('li');
+    const updatePostIcon = createHtmlElement1('i', 'ri-pencil-line');
+    const updatePostTitle = createHtmlElement1('span', 'item-title', null, 'Report');
+    appendChildren1(updatePost, updatePostIcon, updatePostTitle);
+
+    // updatePost.addEventListener('click', () => {
+    //   fetch('/api/v1/post/update', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ id, title, caption, images, video, posterId, communityId,}),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((result) => console.log(result))
+    //     .catch((err) => console.log(err));
+    // });
+
+    appendChildren1(moreMenu, menuItem1, menuItem2, menuItem3, deletePost, updatePost);
+  } else {
+    appendChildren1(moreMenu, menuItem1, menuItem2, menuItem3);
+  }
 
   appendChildren1(moreSec, moreIconSpan, moreMenu);
 

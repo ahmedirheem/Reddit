@@ -1,8 +1,6 @@
 const settingBtn = document.querySelector('.setting-btn');
 const settingMenu = document.querySelector('.setting-menu');
 
-const loggedUser = JSON.parse(localStorage.getItem('logged-user'));
-
 const createHtmlElement = (element, className, id, textContent) => {
   const ele = document.createElement(element);
 
@@ -45,10 +43,12 @@ window.onload = () => {
     .catch((err) => console.log(err));
 };
 
-const usernameForLogged = document.querySelector('.setting-btn .username');
-usernameForLogged.textContent = loggedUser.username;
-const avatarImg = document.querySelector('.setting-btn .avatar img');
-avatarImg.setAttribute('src', loggedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
+const usernameCreateForLogged = document.querySelector('.setting-btn .username');
+// eslint-disable-next-line no-undef
+usernameCreateForLogged.textContent = loggedUser.username;
+const avatarImgCreate = document.querySelector('.setting-btn .avatar img');
+// eslint-disable-next-line no-undef
+avatarImgCreate.setAttribute('src', loggedUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
 
 // eslint-disable-next-line no-undef
 settingLoggedMenuData.forEach((item) => {
@@ -94,7 +94,11 @@ logOutMenuBtn.addEventListener('click', () => {
 // const goToCreatePostBtns = document.querySelectorAll('.go-to-create-post-btn');
 
 // goToCreatePostBtns.forEach((button) => {
-//   button.addEventListener(('click', () => {
-//     fetch('/')
-//   }));
+//   button.addEventListener('click', () => {
+//     fetch('/submit')
+//       .then(() => {
+//         window.location.href = '/submit';
+//       })
+//       .catch((err) => console.log(err));
+//   });
 // });
