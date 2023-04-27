@@ -1,4 +1,5 @@
 const titleInput = document.querySelector('.title-input input');
+const communitySelection = document.getElementById('community-select');
 
 const postTextInput = document.querySelector('#post-text-input');
 const urlInput = document.querySelector('.url-input textarea');
@@ -26,6 +27,25 @@ const usernameForLogged = document.querySelector('.setting-btn .username');
 usernameForLogged.textContent = loggedCreateUser.username;
 const avatarImg = document.querySelector('.setting-btn .avatar img');
 avatarImg.setAttribute('src', loggedCreateUser.avatar || 'https://external-preview.redd.it/5kh5OreeLd85QsqYO1Xz_4XSLYwZntfjqou-8fyBFoE.png?auto=webp&s=dbdabd04c399ce9c761ff899f5d38656d1de87c2');
+
+const userOption = document.createElement('option');
+userOption.setAttribute('value', 1);
+userOption.textContent = `u/${loggedCreateUser.username}`;
+communitySelection.appendChild(userOption);
+
+window.onload = () => {
+  fetch('/api/v1/post/communities')
+    .then((res) => res.json())
+    .then((data) => {
+      data.data.communities.forEach((community) => {
+        const option = document.createElement('option');
+        option.setAttribute('value', community.id);
+        option.textContent = community.name;
+        communitySelection.appendChild(option);
+      });
+    })
+    .catch(() => alert('Communities Error'));
+};
 
 postTypeBtn.addEventListener('click', () => {
   imageTypeBtn.classList.remove('active');
@@ -58,7 +78,7 @@ linkTypeBtn.addEventListener('click', () => {
 });
 
 postTextBtn.addEventListener('click', () => {
-  console.log(titleInput.value);
+  const communityValue = communitySelection.options[communitySelection.selectedIndex].value;
   fetch('/api/v1/post/submit', {
     method: 'POST',
     headers: {
@@ -68,9 +88,9 @@ postTextBtn.addEventListener('click', () => {
       title: titleInput.value,
       caption: postTextInput.value,
       posterId: +loggedCreateUser.id,
+      communityId: +communityValue,
     }),
   })
     .then(window.location.href = '/')
     .catch(() => console.log('Create Post Error'));
-  console.log('done');
 });

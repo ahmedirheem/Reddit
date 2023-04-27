@@ -103,6 +103,7 @@ section.body .posts-head{
 	max-width: 100%;
 	text-align: center;
   font-family: var(--main-font);
+  height: fit-content;
 }
 
 .card-container .round {

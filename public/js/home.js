@@ -87,6 +87,7 @@ document.querySelector('section.body').addEventListener('click', () => {
 // Start Create Post Section
 
 const createPostElement = (data) => {
+  console.log(data);
   const post = createHtmlElement('div', 'post', 'post');
 
   const leftSide = createHtmlElement('div', 'left-side');
@@ -111,9 +112,6 @@ const createPostElement = (data) => {
   const postHead = createHtmlElement('div', 'post-head');
 
   const avatar = createHtmlElement('img', 'avatar');
-  avatar.src = data.com_avatar;
-  const groupLink = createHtmlElement('a', 'group-link', null, data.com_name);
-  const dotItem = createHtmlElement('span', 'dot-item', null, '•');
   const postedBy = createHtmlElement('span', 'posted-by', null, 'Posted by');
   const userName = createHtmlElement('a', 'username', null, data.username);
   userName.setAttribute('href', '#');
@@ -121,7 +119,16 @@ const createPostElement = (data) => {
   const postedAt = createHtmlElement('span', 'posted-at', null, data.posted_at);
   const joinBtn = createHtmlElement('button', 'join-btn', 'post-join-btn', 'join');
   joinBtn.setAttribute('onclick', 'showSignupPage()');
-  appendChildren(postHead, avatar, groupLink, dotItem, postedBy, postedAt, joinBtn);
+
+  if (data.com_id === 1) {
+    avatar.src = data.user_avatar;
+    appendChildren(postHead, avatar, postedBy, postedAt, joinBtn);
+  } else {
+    avatar.src = data.com_avatar;
+    const groupLink = createHtmlElement('a', 'group-link', null, data.com_name);
+    const dotItem = createHtmlElement('span', 'dot-item', null, '•');
+    appendChildren(postHead, avatar, groupLink, dotItem, postedBy, postedAt, joinBtn);
+  }
 
   const postCaption = createHtmlElement('div', 'post-caption');
 

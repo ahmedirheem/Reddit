@@ -90,9 +90,7 @@ const createPostElement = (data) => {
   const postHead = createHtmlElement1('div', 'post-head');
 
   const avatar = createHtmlElement1('img', 'avatar');
-  avatar.src = data.com_avatar;
-  const groupLink = createHtmlElement1('a', 'group-link', null, data.com_name);
-  const dotItem = createHtmlElement1('span', 'dot-item', null, '•');
+
   const postedBy = createHtmlElement1('span', 'posted-by', null, 'Posted by');
   const userName = createHtmlElement1('a', 'username', null, data.username);
   userName.setAttribute('href', `/${data.username}`);
@@ -100,7 +98,15 @@ const createPostElement = (data) => {
   postedBy.appendChild(userName);
   const postedAt = createHtmlElement1('span', 'posted-at', null, data.posted_at);
 
-  appendChildren1(postHead, avatar, groupLink, dotItem, postedBy, postedAt);
+  if (data.com_id === 1) {
+    avatar.src = data.user_avatar;
+    appendChildren1(postHead, avatar, postedBy, postedAt);
+  } else {
+    avatar.src = data.com_avatar;
+    const groupLink = createHtmlElement1('a', 'group-link', null, data.com_name);
+    const dotItem = createHtmlElement1('span', 'dot-item', null, '•');
+    appendChildren1(postHead, avatar, groupLink, dotItem, postedBy, postedAt);
+  }
 
   const postCaption = createHtmlElement1('div', 'post-caption');
   const titleText = createHtmlElement1('h3', 'title-text', null, data.title);

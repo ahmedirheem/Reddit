@@ -279,6 +279,18 @@ section.body {
   cursor: pointer;
 }
 
+.choose-community select option {
+  width: 100%;
+  height: 40px;
+  line-height: 32px;
+  padding: 0.5rem 1rem !important;
+  font-size: 1rem;
+}
+
+.choose-community select option:first-child {
+  border-bottom: 1px solid #edeff1;
+}
+
 .post-section {
   margin: 0.5rem auto;
   background-color: var(--white-color);

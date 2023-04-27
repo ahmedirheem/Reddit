@@ -8,7 +8,9 @@ const getCommunities = (req, res, next) => {
         communities: data.rows,
       },
     }))
-    .catch((err) => next(err));
+    .catch((err) => {
+      console.log(err);
+      next(err)});
 };
 
 module.exports = getCommunities;
