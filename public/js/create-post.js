@@ -2,6 +2,7 @@ const titleInput = document.querySelector('.title-input input');
 const communitySelection = document.getElementById('community-select');
 
 const postTextInput = document.querySelector('#post-text-input');
+const imageInput = document.getElementById('choose-img-btn');
 const urlInput = document.querySelector('.url-input textarea');
 
 const saveTextAsDraftBtn = document.querySelector('.post-type-input .save-draft-btn');
@@ -94,3 +95,23 @@ postTextBtn.addEventListener('click', () => {
     .then(window.location.href = '/')
     .catch(() => console.log('Create Post Error'));
 });
+
+cancelImagePost.addEventListener('click', () => window.location.href('/'));
+
+// postImageBtn.addEventListener('click', () => {
+//   const communityValue = communitySelection.options[communitySelection.selectedIndex].value;
+//   fetch('/api/v1/post/submit', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'multipart/form-data',
+//     },
+//     body: JSON.stringify({
+//       title: titleInput.value,
+//       image: imageInput.value,
+//       posterId: +loggedCreateUser.id,
+//       communityId: +communityValue,
+//     }),
+//   })
+//     .then(window.location.href = '/')
+//     .catch(() => console.log('Create Post Error'));
+// });

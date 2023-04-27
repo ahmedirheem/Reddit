@@ -1,10 +1,25 @@
-const { join } = require('path');
+require('dotenv').config();
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const express = require('express');
+
+// const multer = require('multer');
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, path.join(__dirname, '..', 'public', 'assets'));
+//   },
+//   filename: (req, file, cb) => {
+//     console.log(file);
+//     cb(null, Date.now() + path.extname(file.originalname));
+//   },
+// });
+
+// const upload = multer({ storage });
+
 const router = require('./routes');
 const { clientError, serverError } = require('./controller');
-require('dotenv').config();
 
 const app = express();
 
@@ -19,10 +34,10 @@ app.use([
   compression(),
 ]);
 
-app.use(express.static(join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use(router);
 app.use(clientError);
 app.use(serverError);
 
-module.exports = app;
+module.exports = { app };
