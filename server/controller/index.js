@@ -8,6 +8,7 @@ const {
   deletePost,
   addLike,
   addDisLike,
+  getCommunities,
 } = require('./post');
 
 const {
@@ -36,4 +37,5 @@ module.exports = {
   createPostPage,
   addLike,
   addDisLike,
+  getCommunities,
 };

@@ -1,7 +1,8 @@
 const { connection } = require('./config');
-const { getUserByEmailQuery, signupQuery } = require('./queries');
 
 const {
+  getUserByEmailQuery,
+  signupQuery,
   getAllPostsQuery,
   getUserPostsQuery,
   addPostQuery,
@@ -10,6 +11,7 @@ const {
   getPostByIdQuery,
   addLikeQuery,
   addDisLikeQuery,
+  getCommunitiesQuery,
 } = require('./queries');
 
 module.exports = {
@@ -24,4 +26,5 @@ module.exports = {
   getPostByIdQuery,
   addLikeQuery,
   addDisLikeQuery,
+  getCommunitiesQuery,
 };

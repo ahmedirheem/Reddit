@@ -8,6 +8,7 @@ const {
   getPostByIdQuery,
   addLikeQuery,
   addDisLikeQuery,
+  getCommunitiesQuery,
 } = require('./post');
 
 module.exports = {
@@ -21,4 +22,5 @@ module.exports = {
   getPostByIdQuery,
   addLikeQuery,
   addDisLikeQuery,
+  getCommunitiesQuery,
 };

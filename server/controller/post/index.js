@@ -5,6 +5,7 @@ const updatePost = require('./updatePost');
 const deletePost = require('./deletePost');
 const addLike = require('./addLike');
 const addDisLike = require('./addDisLike');
+const getCommunities = require('./getCommunities');
 
 module.exports = {
   getAllPosts,
@@ -14,4 +15,5 @@ module.exports = {
   deletePost,
   addLike,
   addDisLike,
+  getCommunities,
 };
