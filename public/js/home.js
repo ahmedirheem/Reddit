@@ -142,6 +142,10 @@ const createPostElement = (data) => {
 
   appendChildren(postCaption, titleText, captionText, category);
 
+  postCaption.addEventListener('click', () => {
+    window.location.href = `/post/${data.id}${data.title}`;
+  });
+
   const postMedia = createHtmlElement('div', 'post-media');
 
   if (data.images) {

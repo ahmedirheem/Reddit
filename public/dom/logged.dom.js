@@ -77,8 +77,7 @@ const createPostElement = (data) => {
         likesNum = result.data.post.likes - result.data.post.dislikes;
         likesCount.textContent = likesNum;
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         console.log('Dislike Error');
       });
   });
@@ -117,6 +116,10 @@ const createPostElement = (data) => {
   category.style.background = '#ff4500';
 
   appendChildren1(postCaption, titleText, captionText, category);
+
+  postCaption.addEventListener('click', () => {
+    window.location.href = `/post/${data.id}${data.title}`;
+  });
 
   const postMedia = createHtmlElement1('div', 'post-media');
 

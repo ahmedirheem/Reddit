@@ -6,6 +6,7 @@ const deletePost = require('./deletePost');
 const addLike = require('./addLike');
 const addDisLike = require('./addDisLike');
 const getCommunities = require('./getCommunities');
+const getPost = require('./getPost');
 
 module.exports = {
   getAllPosts,
@@ -16,4 +17,5 @@ module.exports = {
   addLike,
   addDisLike,
   getCommunities,
+  getPost,
 };

@@ -9,6 +9,7 @@ const {
   addLike,
   addDisLike,
   getCommunities,
+  getPost,
 } = require('./post');
 
 const {
@@ -16,7 +17,7 @@ const {
 } = require('./user');
 
 const {
-  homePage, loggedPage, createPostPage, profilePage,
+  homePage, loggedPage, createPostPage, profilePage, postPage,
 } = require('./pages');
 
 module.exports = {
@@ -38,4 +39,6 @@ module.exports = {
   addLike,
   addDisLike,
   getCommunities,
+  postPage,
+  getPost,
 };
