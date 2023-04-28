@@ -21,4 +21,8 @@ INSERT INTO posts(title, caption, likes, dislikes, poster_id, community_id) VALU
   'Why are there so many languages?',
   'I"m a beginner, but I thought the reason languages went from Assembly to what we have now was to make it easier for people to read and write. So why are there so many? I"ve skimmed how a bunch of them look, and C++ looks like diarrhea while python looks like English. What"s the reason for there not being a universal programming language?',
   88, 7,3, 3);
+
+INSERT INTO comments(comment_caption, comment_likes, comment_dislikes, commenter_id, post_id) VALUES ('You Post Is Awsome!!', 15, 6, 1, 2);
+INSERT INTO comments(comment_caption, comment_likes, comment_dislikes, commenter_id, post_id) VALUES ('I Love Your Posts So Much!!', 15, 9, 2, 1);
+
 COMMIT;

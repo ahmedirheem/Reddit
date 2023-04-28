@@ -12,6 +12,8 @@ const {
   addLikeQuery,
   addDisLikeQuery,
   getCommunitiesQuery,
+  getAllCommentsQuery,
+  addCommentQuery,
 } = require('./queries');
 
 module.exports = {
@@ -27,4 +29,6 @@ module.exports = {
   addLikeQuery,
   addDisLikeQuery,
   getCommunitiesQuery,
+  getAllCommentsQuery,
+  addCommentQuery,
 };

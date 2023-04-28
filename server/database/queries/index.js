@@ -11,6 +11,8 @@ const {
   getCommunitiesQuery,
 } = require('./post');
 
+const { getAllCommentsQuery, addCommentQuery } = require('./comments');
+
 module.exports = {
   getUserByEmailQuery,
   signupQuery,
@@ -23,4 +25,6 @@ module.exports = {
   addLikeQuery,
   addDisLikeQuery,
   getCommunitiesQuery,
+  getAllCommentsQuery,
+  addCommentQuery,
 };
