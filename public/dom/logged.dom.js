@@ -29,6 +29,7 @@ const dropMenu = (element) => {
 };
 // eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
+  console.log(data);
   const post = createHtmlElement1('div', 'post', 'post');
 
   const leftSide = createHtmlElement1('div', 'left-side');

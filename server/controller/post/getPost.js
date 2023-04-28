@@ -1,14 +1,14 @@
-const { getPostByIdQuery } = require("../../database");
+const { getPostByIdQuery } = require('../../database');
 
 const getPost = (req, res, next) => {
-  console.log(req.body.id);
-  const { id } = req.body;
+  const { id } = req.params;
   getPostByIdQuery({ id })
     .then((data) => {
+      console.log(data.rows);
       res.json({
         error: false,
         data: {
-          post: data.rows[0],
+          posts: data.rows[0],
         },
       });
     })

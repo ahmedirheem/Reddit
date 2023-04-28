@@ -718,7 +718,8 @@ section.body {
 /* POST HEAD */
 
 /* POST ITEM */
-.posts .post {
+.posts .post,
+#post {
   width: 100%;
   margin-bottom: 10px;
   border-radius: 4px;
@@ -728,7 +729,7 @@ section.body {
   display: flex;
 }
 
-.posts .post:hover {
+#post:hover {
   border: 1px solid #898989;
 }
 
@@ -948,18 +949,18 @@ section.body {
   font-weight: 700;
 }
 
-.posts .post-social .more-sec {
+.post .post-social .more-sec {
   padding-top: 2px !important;
   padding-bottom: 2px !important;
   text-align: center;
   position: relative;
 }
 
-.posts .post-social .more-sec .more-icon {
+.post .post-social .more-sec .more-icon {
   width: 100%;
 }
 
-.posts .post-social .more-sec ul {
+.post .post-social .more-sec ul {
   position: absolute;
   top: 100%;
   left: 0;
@@ -970,11 +971,11 @@ section.body {
   display: none;
 }
 
-.posts .post-social .more-sec.dropped ul {
+.post .post-social .more-sec.dropped ul {
   display: block;
 }
 
-.posts .post-social .more-sec li {
+.post .post-social .more-sec li {
   color: var(--icon-gray-color);
   display: flex;
   align-items: center;
@@ -987,20 +988,20 @@ section.body {
   width: 100%;
 }
 
-.posts .post-social .more-sec li i {
+.post .post-social .more-sec li i {
   margin-right: 6px;
   font-size: 20px;
   position: absolute;
 }
 
-.posts .post-social .more-sec li span {
+.post .post-social .more-sec li span {
   font-size: 14px;
   font-family: var(--main-font);
   font-weight: 500;
   margin-left: 35px;
 }
 
-.posts .post-social .more-sec li:hover {
+.post .post-social .more-sec li:hover {
   background-color: #e9f5fd;
   color: var(--text-gray-color);
 }

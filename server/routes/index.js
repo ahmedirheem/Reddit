@@ -17,7 +17,7 @@ router.use('/api/v1/user', userRouter);
 router.get('/profile/:username', userProfile);
 router.get('/:username', profilePage);
 
-router.get('/posts/:postId', getPost);
+router.get('/posts/:id', getPost);
 router.get('/post/:postId', postPage);
 
 module.exports = router;

@@ -46,6 +46,7 @@ header{
   position: relative;
   top: 0;
   z-index: 99999999;
+
 }
 
 .post-container-head{
@@ -84,5 +85,19 @@ header{
 .post-container-head .close-post:hover i,
 .post-container-head .close-post:hover span{
   color: var(--light-gray-color);
+}
+
+.post-container-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 7% 7% 20px 7%;
+}
+#post:hover {
+  border-color: #ccc;
+}
+.post .post-caption .title-text{
+  margin-bottom: 1rem;
 }
 /* End Post Section */
