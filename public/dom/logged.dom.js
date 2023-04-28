@@ -29,7 +29,6 @@ const dropMenu = (element) => {
 };
 // eslint-disable-next-line no-unused-vars
 const createPostElement = (data) => {
-  console.log(data);
   const post = createHtmlElement1('div', 'post', 'post');
 
   const leftSide = createHtmlElement1('div', 'left-side');
@@ -112,11 +111,8 @@ const createPostElement = (data) => {
   const titleText = createHtmlElement1('h3', 'title-text', null, data.title);
   titleText.style.display = 'block';
   const captionText = createHtmlElement1('span', 'caption-text', null, data.caption);
-  const category = createHtmlElement1('a', 'category', null, data.content?.category);
-  category.setAttribute('href', '#');
-  category.style.background = '#ff4500';
 
-  appendChildren1(postCaption, titleText, captionText, category);
+  appendChildren1(postCaption, titleText, captionText);
 
   postCaption.addEventListener('click', () => {
     window.location.href = `/post/${data.id}${data.title}`;

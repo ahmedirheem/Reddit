@@ -29,7 +29,7 @@ const appearSettingMenu = (ele, i) => {
   ele.children[i].classList.toggle('rotated');
 };
 
-settingBtn.addEventListener('click', () => {
+settingBtn?.addEventListener('click', () => {
   settingMenu.classList.toggle('active');
 });
 
@@ -77,20 +77,20 @@ settingLoggedMenuData.forEach((item) => {
   }
 });
 
-document.querySelector('section.body').addEventListener('click', () => {
+document.querySelector('section.body')?.addEventListener('click', () => {
   settingMenu.classList.remove('active');
 });
 
 const profileMenuBtn = settingMenu.firstElementChild;
 
-profileMenuBtn.addEventListener('click', () => {
+profileMenuBtn?.addEventListener('click', () => {
   // eslint-disable-next-line no-undef
   window.location.href = `/${loggedUser?.username}`;
 });
 
 const logOutMenuBtn = settingMenu.lastElementChild;
 
-logOutMenuBtn.addEventListener('click', () => {
+logOutMenuBtn?.addEventListener('click', () => {
   fetch('/api/v1/user/logout')
     .then(() => {
       localStorage.clear();

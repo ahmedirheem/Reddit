@@ -38,15 +38,18 @@ li {
 header{
   z-index: 999999991;
 }
+.column1{
+  background-color: var(--white-color);
+  border: 1px solid #ccc;
+}
 .post-container{
-  width: 89%;
+  width: 85%;
   height: 100vh;
   margin: auto;
   background-color: #dae0e6;
   position: relative;
   top: 0;
   z-index: 99999999;
-
 }
 
 .post-container-head{
@@ -89,15 +92,146 @@ header{
 
 .post-container-body{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 0.5rem;
   padding: 7% 7% 20px 7%;
 }
+#post {
+  border: none;
+  border-bottom: 1px solid #dae0e6;
+}
 #post:hover {
-  border-color: #ccc;
+  border: none;
+  border-bottom: 1px solid #dae0e6;
+}
+#post .left-side{
+  background-color: var(--white-color);
+  border-right: 1px solid #dae0e6;
 }
 .post .post-caption .title-text{
   margin-bottom: 1rem;
 }
 /* End Post Section */
+
+/* Start Community Section */
+.column2{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.community-card{
+  overflow: hidden;
+  border-top: 30px solid var(--blue-color) !important;
+  width: 310px;
+  min-width: 310px;
+  height: fit-content;
+  border-radius: 4px;
+  box-shadow: 0 0 0 0 var(--white-color);
+  background-color: var(--white-color);
+}
+
+.community-card .card-head{
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.card-head img{
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-head h1{
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-gray-color);
+  font-family: var(--main-font);
+}
+
+.card-desc{
+  padding: 1rem;
+}
+
+.card-desc .desc-text,
+.card-desc .members{
+  font-family: var(--secondary-font);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-gray-color);
+  line-height: 21px;
+  word-wrap: break-word;
+  display: block;
+}
+
+.card-desc .members{
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  color: var(--blue-color);
+  border-top: 1px solid #dae0e6;
+}
+
+.card-join{
+  margin: 0 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #dae0e6;
+  border-bottom: 1px solid #dae0e6;
+}
+
+.card-join button{
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  border-radius: 99999px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: 600;
+}
+/* End Community Section */
+
+/* Start Comments Section */
+.comment-input{
+  padding: 1rem 40px;
+}
+.comment-input .title{
+  font-family: var(--secondary-font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--text-gray-color);
+}
+.comments-container .submit-btns {
+  margin-top: 0.5rem;
+  width: 100%;
+  text-align: right;
+}
+
+.comments-container button {
+  height: 30px;
+  padding: 0 1rem;
+  border-radius: 9999px;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-family: var(--secondary-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  cursor: pointer;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+/* End Comments Section */
