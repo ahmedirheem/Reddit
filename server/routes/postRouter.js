@@ -6,6 +6,8 @@ const {
   updatePost,
   deletePost,
   getUserPosts,
+  getAllComments,
+  addComment,
 } = require('../controller');
 
 const { addLike, addDisLike, getCommunities } = require('../controller');
@@ -23,6 +25,8 @@ postRouter.post('/user-posts', getUserPosts);
 
 postRouter.get('/communities', getCommunities);
 postRouter.use(checkAuth);
+postRouter.get('/comments', getAllComments);
+postRouter.post('/comment', addComment);
 postRouter.post('/submit', addPost);
 postRouter.post('/delete', deletePost);
 postRouter.put('/update', updatePost);

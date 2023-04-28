@@ -12,6 +12,7 @@ const {
   getPost,
 } = require('./post');
 
+const { getAllComments, addComment } = require('./comments');
 const {
   login, signup, logout, userProfile,
 } = require('./user');
@@ -41,4 +42,6 @@ module.exports = {
   getCommunities,
   postPage,
   getPost,
+  getAllComments,
+  addComment,
 };
