@@ -20,25 +20,36 @@ postOverlay.addEventListener('click', () => {
 });
 
 const createCommunityCard = (community) => {
+  console.log(community);
   const card = createHtmlElement1('div', 'community-card');
 
   const cardHead = createHtmlElement1('div', 'card-head');
   const communityImg = createHtmlElement1('img', 'community-img');
-  communityImg.src = community.com_avatar;
-  const communityName = createHtmlElement1('h1', 'community-name', null, community.com_name);
+  const communityName = createHtmlElement1('h1', 'community-name', null, community.username);
+  if (community.com_id === 1) {
+    communityImg.src = community.user_avatar;
+    communityName.textContent = community.username;
+  } else {
+    communityImg.src = community.com_avatar;
+    communityName.textContent = community.com_name;
+  }
   appendChildren1(cardHead, communityImg, communityName);
 
-  const cardDesc = createHtmlElement1('div', 'card-desc');
-  const descText = createHtmlElement1('span', 'desc-text', null, community.description);
-  const members = createHtmlElement1('span', 'members', null, `${community.members} Members`);
-  appendChildren1(cardDesc, descText, members);
-
   const cardJoin = createHtmlElement1('div', 'card-join');
-  const joinBtn = createHtmlElement1('button', 'join-btn', null, 'Join');
+  const joinBtn = createHtmlElement1('button', 'join-btn');
   cardJoin.appendChild(joinBtn);
 
-  appendChildren1(card, cardHead, cardDesc, cardJoin);
-
+  if (community.com_id !== 1) {
+    const cardDesc = createHtmlElement1('div', 'card-desc');
+    const descText = createHtmlElement1('span', 'desc-text', null, community.description);
+    const members = createHtmlElement1('span', 'members', null, `${community.members} Members`);
+    appendChildren1(cardDesc, descText, members);
+    joinBtn.textContent = 'Join';
+    appendChildren1(card, cardHead, cardDesc, cardJoin);
+  } else {
+    joinBtn.textContent = 'Follow';
+    appendChildren1(card, cardHead, cardJoin);
+  }
   communitySection.appendChild(card);
 };
 
@@ -47,7 +58,8 @@ const createCommentElement = (comment) => {
 
   const commentHead = createHtmlElement1('div', 'comment-head');
   const avatar = createHtmlElement1('img', 'avatar');
-  const userName = createHtmlElement1('a', 'username', null, comment.username);
+  avatar.src = comment.avatar || loggedUser.avatar;
+  const userName = createHtmlElement1('a', 'username', null, comment.username || loggedUser.username);
   userName.setAttribute('href', `/${comment.username}`);
   const commentedAt = createHtmlElement1('span', 'commented-at', null, comment.commented_at);
   appendChildren1(commentHead, avatar, userName, commentedAt);
@@ -118,7 +130,7 @@ const createCommentElement = (comment) => {
 
   appendChildren1(commentElement, commentHead, commentCaption, commentSocial);
 
-  commentsContainer.append(commentElement);
+  commentsContainer.prepend(commentElement);
 };
 
 fetch(`/posts/${postId}`)
@@ -130,7 +142,8 @@ fetch(`/posts/${postId}`)
     createCommunityCard(data.data.posts);
     document.title = data.data.posts.title;
   })
-  .catch(() => {
+  .catch((err) => {
+    console.log(err);
     alert('Post Error');
   });
 
@@ -148,6 +161,9 @@ fetch(`/api/v1/comment/${postId}`)
   });
 
 commentBtn.addEventListener('click', () => {
+  if (commentInput.value === '') {
+    return;
+  }
   fetch(`/api/v1/comment/add/${postId}`, {
     method: 'POST',
     headers: {
@@ -162,6 +178,7 @@ commentBtn.addEventListener('click', () => {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       commentInput.value = '';
       createCommentElement(data.data.comment);
     })

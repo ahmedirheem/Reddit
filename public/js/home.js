@@ -153,6 +153,7 @@ const createPostElement = (data) => {
     postImage.src = data.images;
     postMedia.appendChild(postImage);
   }
+  console.log(data);
   // else {
   // const postVideo = createHtmlElement('img', 'post-video');
   // postVideo.src = data.video;

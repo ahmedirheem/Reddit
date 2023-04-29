@@ -14,7 +14,7 @@ const commentRouter = express.Router();
 //   res.send('image Uploaded');
 // });
 
-commentRouter.use(checkAuth);
+// commentRouter.use(checkAuth);
 commentRouter.get('/:postId', getAllComments);
 commentRouter.post('/add/:postId', addComment);
 

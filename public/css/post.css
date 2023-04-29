@@ -96,6 +96,7 @@ header{
   justify-content: center;
   gap: 0.5rem;
   padding: 7% 7% 20px 7%;
+  background-color: #dae0e6;
 }
 #post {
   border: none;
@@ -212,13 +213,13 @@ header{
   line-height: 18px;
   color: var(--text-gray-color);
 }
-.comments-container .submit-btns {
+.comments-parent .submit-btns {
   margin-top: 0.5rem;
   width: 100%;
   text-align: right;
 }
 
-.comments-container button {
+.comments-parent button {
   height: 30px;
   padding: 0 1rem;
   border-radius: 9999px;
@@ -234,4 +235,35 @@ header{
   color: var(--white-color);
 }
 
+.comment-as-username{
+  color: var(--blue-color);
+}
+
+.comments-container{
+  padding: 40px 1rem;
+  border-top: 1px solid #dae0e6;
+}
+#comment {
+  padding: 8px;
+  font-family: var(--main-font);
+}
+
+#comment .username{
+  color: var(--text-gray-color);
+}
+
+#comment .comment-caption,
+#comment .comment-social{
+  padding-left: 1.7rem;
+}
+
+#comment .comment-social .votes-side{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem
+}
+#comment .comment-social div i{
+  margin: 0;
+  cursor: pointer;
+}
 /* End Comments Section */

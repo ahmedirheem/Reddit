@@ -745,7 +745,8 @@ section.body {
   border-radius: 4px 0 0 4px;
 }
 
-.post .left-side i {
+.post .left-side i,
+#comment .comment-social div i {
   color: var(--icon-gray-color);
   font-size: 20px;
   font-weight: 400;
@@ -754,24 +755,29 @@ section.body {
   pointer-events: all;
 }
 
-.post .left-side i:hover {
+.post .left-side i:hover,
+#comment .comment-social div i:hover {
   background-color: #e1e2e3;
 }
 
-.post .left-side i:first-of-type:hover {
+.post .left-side i:first-of-type:hover,
+#comment .comment-social div i:first-of-type:hover {
   color: #cc3700;
 }
 
-.post .left-side i:last-of-type:hover {
+.post .left-side i:last-of-type:hover,
+#comment .comment-social div i:last-of-type:hover {
   color: #5a75cc;
 }
 
-.post .left-side #like-icon.active {
+.post .left-side #like-icon.active,
+#comment .comment-social div #like-icon.active {
   color: #cc3700;
   pointer-events: none;
 }
 
-.post .left-side #dislike-icon.active {
+.post .left-side #dislike-icon.active,
+#comment .comment-social div #dislike-icon.active{
   color: #5a75cc;
   pointer-events: none;
 }
@@ -780,7 +786,8 @@ section.body {
   flex: 1;
 }
 
-.post .post-head {
+.post .post-head,
+#comment .comment-head {
   padding: 8px;
   font-family: var(--main-font);
   display: flex;
@@ -788,7 +795,8 @@ section.body {
   justify-content: flex-start;
 }
 
-.post .post-head img {
+.post .post-head img,
+#comment .comment-head img{
   width: 20px;
   height: 20px;
   object-fit: cover;
@@ -805,7 +813,8 @@ section.body {
 }
 
 .post .post-head .group-link:hover,
-.post .post-head .username:hover {
+.post .post-head .username:hover,
+#comment .username:hover {
   text-decoration: underline;
 }
 
@@ -820,7 +829,9 @@ section.body {
 
 .post .post-head .posted-by,
 .post .post-head .username,
-.post .post-head .posted-at {
+.post .post-head .posted-at,
+#comment .username,
+#comment .commented-at {
   font-family: inherit;
   color: #787C7E;
   font-size: 12px;
@@ -846,7 +857,8 @@ section.body {
   background-color: #e4e6e7;
 }
 
-.post .post-caption {
+.post .post-caption,
+#comment .comment-caption {
   margin: 0 0.5rem;
 }
 
@@ -861,7 +873,8 @@ section.body {
   color: #222;
 }
 
-.post .post-caption .caption-text {
+.post .post-caption .caption-text,
+#comment .caption-text  {
   font-size: 14px;
   font-family: var(--secondary-font);
   word-break: break-all;
@@ -914,7 +927,8 @@ section.body {
   object-fit: contain;
 }
 
-.post .post-social {
+.post .post-social,
+#comment .comment-social {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -924,7 +938,8 @@ section.body {
   /* background-color: royalblue; */
 }
 
-.post .post-social div {
+.post .post-social div,
+#comment .comment-social div {
   border-radius: 2px;
   padding: 8px 4px;
   line-height: 16px;
@@ -937,13 +952,15 @@ section.body {
   background-color: #e8e8e8;
 }
 
-.post .post-social div i {
+.post .post-social div i,
+#comment .comment-social div i {
   font-size: 17px;
   vertical-align: middle;
   margin-right: 6px;
 }
 
-.post .post-social div span {
+.post .post-social div span,
+#comment .comment-social div span {
   font-family: var(--main-font);
   font-size: 12px;
   font-weight: 700;
