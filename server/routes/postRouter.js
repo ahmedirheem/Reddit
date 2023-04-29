@@ -25,8 +25,10 @@ postRouter.post('/user-posts', getUserPosts);
 
 postRouter.get('/communities', getCommunities);
 postRouter.use(checkAuth);
-postRouter.get('/comments', getAllComments);
-postRouter.post('/comment', addComment);
+
+postRouter.get('/comments/:postId', getAllComments);
+postRouter.post('/comment/:postId', addComment);
+
 postRouter.post('/submit', addPost);
 postRouter.post('/delete', deletePost);
 postRouter.put('/update', updatePost);

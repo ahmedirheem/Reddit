@@ -4,7 +4,6 @@ const getPost = (req, res, next) => {
   const { id } = req.params;
   getPostByIdQuery({ id })
     .then((data) => {
-      console.log(data.rows);
       res.json({
         error: false,
         data: {

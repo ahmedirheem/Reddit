@@ -1,6 +1,23 @@
 const postId = window.location.href.split('post/')[1].slice(0, 1);
+const postContainer = document.querySelector('.alone-post-container');
 const communitySection = document.querySelector('.community-section');
 const commentsContainer = document.querySelector('.comments-container');
+const commentAsUsername = document.querySelector('.comment-as-username');
+const commentInput = document.getElementById('comment-side-input');
+const commentBtn = document.querySelector('.comment-btn');
+
+// eslint-disable-next-line no-undef
+commentAsUsername.textContent = loggedUser.username;
+
+const closePostBtn = document.querySelector('.close-post');
+const postOverlay = document.querySelector('.overlay');
+
+closePostBtn.addEventListener('click', () => {
+  window.location.href = '/';
+});
+postOverlay.addEventListener('click', () => {
+  window.location.href = '/';
+});
 
 const createCommunityCard = (community) => {
   const card = createHtmlElement1('div', 'community-card');
@@ -30,13 +47,13 @@ const createCommentElement = (comment) => {
 
   const commentHead = createHtmlElement1('div', 'comment-head');
   const avatar = createHtmlElement1('img', 'avatar');
-  const userName = createHtmlElement1('a', 'username', null, comment.commenter_name);
-  userName.setAttribute('href', `/${comment.commenter_name}`);
+  const userName = createHtmlElement1('a', 'username', null, comment.username);
+  userName.setAttribute('href', `/${comment.username}`);
   const commentedAt = createHtmlElement1('span', 'commented-at', null, comment.commented_at);
   appendChildren1(commentHead, avatar, userName, commentedAt);
 
   const commentCaption = createHtmlElement1('div', 'comment-caption');
-  const captionText = createHtmlElement1('span', 'caption-text', null, comment.caption);
+  const captionText = createHtmlElement1('span', 'caption-text', null, comment.comment_caption);
   commentCaption.appendChild(captionText);
 
   const commentSocial = createHtmlElement1('div', 'comment-social');
@@ -47,7 +64,7 @@ const createCommentElement = (comment) => {
 
   const votesSide = createHtmlElement1('div', 'votes-side');
   const upIcon = createHtmlElement1('i', 'fa-regular fa-circle-up', 'like-icon');
-  const commentLikesNum = comment.likes - comment.dislikes;
+  const commentLikesNum = comment.comment_likes - comment.comment_dislikes;
   const likesCount = createHtmlElement1('span', 'likes-count', null, `${commentLikesNum}`);
   const downIcon = createHtmlElement1('i', 'fa-regular fa-circle-down', 'dislike-icon');
 
@@ -99,32 +116,54 @@ const createCommentElement = (comment) => {
 
   appendChildren1(commentSocial, votesSide, replySec);
 
-  appendChildren1(comment, commentHead, commentCaption, commentSocial);
+  appendChildren1(commentElement, commentHead, commentCaption, commentSocial);
 
   commentsContainer.append(commentElement);
 };
 
-window.onload = () => {
-  fetch(`/posts/${postId}`)
+fetch(`/posts/${postId}`)
+  .then((res) => res.json())
+  .then((data) => {
+    // eslint-disable-next-line no-undef
+    const post = createPostElement(data.data.posts);
+    postContainer.appendChild(post);
+    createCommunityCard(data.data.posts);
+    document.title = data.data.posts.title;
+  })
+  .catch(() => {
+    alert('Post Error');
+  });
+
+fetch(`/api/v1/comment/${postId}`)
+  .then((res) => res.json())
+  .then((data) => {
+    // eslint-disable-next-line no-undef
+    data.data.comments.forEach((comment) => {
+      createCommentElement(comment);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+    alert('comment Error');
+  });
+
+commentBtn.addEventListener('click', () => {
+  fetch(`/api/v1/comment/add/${postId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      commentCaption: commentInput.value,
+      // eslint-disable-next-line no-undef
+      commenterId: loggedUser.id,
+      postId: +postId,
+    }),
+  })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      // eslint-disable-next-line no-undef
-      createPostElement(data.data.posts);
-      createCommunityCard(data.data.posts);
+      commentInput.value = '';
+      createCommentElement(data.data.comment);
     })
-    .catch((err) => {
-      console.log(err);
-      // alert('Post Error')
-    });
-};
-
-const closePostBtn = document.querySelector('.close-post');
-const postOverlay = document.querySelector('.overlay');
-
-closePostBtn.addEventListener('click', () => {
-  window.location.href = '/';
-});
-postOverlay.addEventListener('click', () => {
-  window.location.href = '/';
+    .cath((err) => console.log(err));
 });

@@ -1,10 +1,9 @@
 const { addCommentQuery } = require('../../database');
 
 const addComment = (req, res, next) => {
-  console.log(req.body);
-  addCommentQuery()
+  const { commentCaption, commenterId, postId } = req.body;
+  addCommentQuery(commentCaption, commenterId, postId)
     .then((data) => {
-      console.log(data.rows);
       res.status(401).json({
         error: false,
         data: {
@@ -13,7 +12,6 @@ const addComment = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       next(err);
     });
 };

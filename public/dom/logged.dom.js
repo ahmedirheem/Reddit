@@ -233,5 +233,6 @@ const createPostElement = (data) => {
 
   appendChildren1(post, leftSide, rightSide);
 
-  postsContainer.prepend(post);
+  postsContainer?.prepend(post);
+  return post;
 };

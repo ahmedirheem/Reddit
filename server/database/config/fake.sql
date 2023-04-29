@@ -24,5 +24,6 @@ INSERT INTO posts(title, caption, likes, dislikes, poster_id, community_id) VALU
 
 INSERT INTO comments(comment_caption, comment_likes, comment_dislikes, commenter_id, post_id) VALUES ('You Post Is Awsome!!', 15, 6, 1, 2);
 INSERT INTO comments(comment_caption, comment_likes, comment_dislikes, commenter_id, post_id) VALUES ('I Love Your Posts So Much!!', 15, 9, 2, 1);
+INSERT INTO comments(comment_caption, comment_likes, comment_dislikes, commenter_id, post_id) VALUES ('I Love Your Posts So Much!!', 15, 9, 3, 3);
 
 COMMIT;

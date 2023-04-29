@@ -1,10 +1,9 @@
 const { getAllCommentsQuery } = require('../../database');
 
 const getAllComments = (req, res, next) => {
-  console.log(req.body);
-  getAllCommentsQuery()
+  const { postId } = req.params;
+  getAllCommentsQuery(postId)
     .then((data) => {
-      console.log(data.rows);
       res.status(401).json({
         error: false,
         data: {

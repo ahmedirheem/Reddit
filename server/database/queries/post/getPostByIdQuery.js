@@ -1,7 +1,6 @@
 const { connection } = require('../../config');
 
 const getPostByIdQuery = ({ id }) => {
-  console.log(id);
   const sql = {
     text: `SELECT p.*, c.id AS com_id, c.name AS com_name, c.avatar AS com_avatar, c.description, c.members, u.id As user_id, u.username, u.avatar AS user_avatar, u.email, u.followers 
       FROM posts p
