@@ -113,9 +113,16 @@ const createPostElement = (data) => {
   const captionText = createHtmlElement1('span', 'caption-text', null, data.caption);
 
   appendChildren1(postCaption, titleText, captionText);
+  if (data.link) {
+    const postLink = createHtmlElement1('a', 'post-link');
+    postLink.textContent = data.link;
+    postCaption.appendChild(postLink);
+  }
 
   postCaption.addEventListener('click', () => {
-    window.location.href = `/post/${data.id}${data.title}`;
+    if (!window.location.href.split.include('/post/')) {
+      window.location.href = `/post/${data.id}${data.title}`;
+    }
   });
 
   const postMedia = createHtmlElement1('div', 'post-media');

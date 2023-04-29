@@ -39,6 +39,7 @@ header{
   z-index: 999999991;
 }
 .column1{
+  flex: 1;
   background-color: var(--white-color);
   border: 1px solid #ccc;
 }

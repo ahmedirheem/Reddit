@@ -20,7 +20,6 @@ postOverlay.addEventListener('click', () => {
 });
 
 const createCommunityCard = (community) => {
-  console.log(community);
   const card = createHtmlElement1('div', 'community-card');
 
   const cardHead = createHtmlElement1('div', 'card-head');
@@ -142,8 +141,7 @@ fetch(`/posts/${postId}`)
     createCommunityCard(data.data.posts);
     document.title = data.data.posts.title;
   })
-  .catch((err) => {
-    console.log(err);
+  .catch(() => {
     alert('Post Error');
   });
 
@@ -155,8 +153,7 @@ fetch(`/api/v1/comment/${postId}`)
       createCommentElement(comment);
     });
   })
-  .catch((err) => {
-    console.log(err);
+  .catch(() => {
     alert('comment Error');
   });
 
@@ -178,9 +175,8 @@ commentBtn.addEventListener('click', () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       commentInput.value = '';
       createCommentElement(data.data.comment);
     })
-    .cath((err) => console.log(err));
+    .cath(() => alert('Adding Post Error'));
 });

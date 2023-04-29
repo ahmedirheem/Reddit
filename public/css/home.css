@@ -897,12 +897,13 @@ section.body {
   font-weight: 500px;
   line-height: 16px;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: -10px;
   overflow: hidden;
+  color: var(--blue-color);
 }
 
 .post .post-caption a:hover {
-  background-color: #ff5414;
+  text-decoration: underline;
 }
 
 .post .post-media {

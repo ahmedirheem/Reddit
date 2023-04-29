@@ -115,3 +115,21 @@ cancelImagePost.addEventListener('click', () => window.location.href('/'));
 //     .then(window.location.href = '/')
 //     .catch(() => console.log('Create Post Error'));
 // });
+
+postUrlBtn.addEventListener('click', () => {
+  const communityValue = communitySelection.options[communitySelection.selectedIndex].value;
+  fetch('/api/v1/post/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: titleInput.value,
+      link: urlInput.value,
+      posterId: +loggedCreateUser.id,
+      communityId: +communityValue,
+    }),
+  })
+    .then(window.location.href = '/')
+    .catch(() => console.log('Create Post Error'));
+});
