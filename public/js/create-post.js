@@ -98,23 +98,23 @@ postTextBtn.addEventListener('click', () => {
 
 cancelImagePost.addEventListener('click', () => window.location.href('/'));
 
-// postImageBtn.addEventListener('click', () => {
-//   const communityValue = communitySelection.options[communitySelection.selectedIndex].value;
-//   fetch('/api/v1/post/submit', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//     },
-//     body: JSON.stringify({
-//       title: titleInput.value,
-//       image: imageInput.value,
-//       posterId: +loggedCreateUser.id,
-//       communityId: +communityValue,
-//     }),
-//   })
-//     .then(window.location.href = '/')
-//     .catch(() => console.log('Create Post Error'));
-// });
+postImageBtn.addEventListener('click', () => {
+  const communityValue = communitySelection.options[communitySelection.selectedIndex].value;
+  fetch('/api/v1/post/upload', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    body: JSON.stringify({
+      // title: titleInput.value,
+      image: imageInput.value,
+      // posterId: +loggedCreateUser.id,
+      // communityId: +communityValue,
+    }),
+  })
+    .then(window.location.href = '/')
+    .catch(() => console.log('Create Post Error'));
+});
 
 postUrlBtn.addEventListener('click', () => {
   const communityValue = communitySelection.options[communitySelection.selectedIndex].value;

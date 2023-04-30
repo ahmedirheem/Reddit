@@ -116,11 +116,13 @@ const createPostElement = (data) => {
   if (data.link) {
     const postLink = createHtmlElement1('a', 'post-link');
     postLink.textContent = data.link;
+    postLink.setAttribute('href', data.link);
+    postLink.setAttribute('target', '_blank');
     postCaption.appendChild(postLink);
   }
 
   postCaption.addEventListener('click', () => {
-    if (!window.location.href.split.include('/post/')) {
+    if (!window.location.href.split('/').includes('post')) {
       window.location.href = `/post/${data.id}${data.title}`;
     }
   });

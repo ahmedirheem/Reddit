@@ -19,7 +19,7 @@ const postRouter = express.Router();
 postRouter.get('/', getAllPosts);
 postRouter.post('/user-posts', getUserPosts);
 
-// postRouter.post('/upload', upload.single('image'), (req, res) => {
+// postRouter.post('/upload', (req, res) => {
 //   res.send('image Uploaded');
 // });
 
