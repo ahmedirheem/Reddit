@@ -18,6 +18,7 @@ router.use('/api/v1/post', postRouter);
 router.use('/api/v1/user', userRouter);
 router.use('/api/v1/comment', commentRouter);
 
+router.use(checkAuth);
 router.get('/profile/:username', userProfile);
 router.get('/:username', profilePage);
 
